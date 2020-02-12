@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace AvoidML.Nursecare
 {
+    [DisableAutoCreation]
     public class NursecareUpdater : JobComponentSystem
     {
         public Mocap2float3s mocap2float3s;
