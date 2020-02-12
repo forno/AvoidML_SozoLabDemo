@@ -1,6 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
 using System.IO;
-using System.Linq;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
@@ -38,7 +37,7 @@ namespace AvoidML.Nursecare
             if (positions == null)
                 return inputDependencies;
 
-            var values = new NativeArray<float3>(positions, Allocator.TempJob);
+            var values = new NativeArray<float3>(Array.ConvertAll(positions, (v) => v ?? 0), Allocator.TempJob);
             var job = new NursecareUpdaterJob
             {
                 positions = values

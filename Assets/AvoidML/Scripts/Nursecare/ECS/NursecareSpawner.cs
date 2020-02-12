@@ -36,7 +36,8 @@ namespace AvoidML.Nursecare
                     CommandBuffer.SetComponent(index, instance, new NursecareData { Index = i });
                 }
 
-                CommandBuffer.DestroyEntity(index, entity); // Delete Spawner
+                // Delete Spawner
+                CommandBuffer.DestroyEntity(index, entity);
             }
         }
 
