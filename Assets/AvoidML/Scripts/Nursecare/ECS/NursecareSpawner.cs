@@ -1,8 +1,10 @@
 ﻿using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using static Unity.Mathematics.math;
 
 namespace AvoidML.Nursecare
 {
@@ -13,56 +15,38 @@ namespace AvoidML.Nursecare
         public uint PositionCount;
     }
 
-    // JobComponentSystems can run on worker threads.
-    // However, creating and removing Entities can only be done on the main thread to prevent race conditions.
-    // The system uses an EntityCommandBuffer to defer tasks that can't be done inside the Job.
-
-    // ReSharper disable once InconsistentNaming
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     public class NursecareSpawnerSystem : JobComponentSystem
     {
-        // BeginInitializationEntityCommandBufferSystem is used to create a command buffer which will then be played back
-        // when that barrier system executes.
-        // Though the instantiation command is recorded in the SpawnJob, it's not actually processed (or "played back")
-        // until the corresponding EntityCommandBufferSystem is updated. To ensure that the transform system has a chance
-        // to run on the newly-spawned entities before they're rendered for the first time, the SpawnerSystem_FromEntity
-        // will use the BeginSimulationEntityCommandBufferSystem to play back its commands. This introduces a one-frame lag
-        // between recording the commands and instantiating the entities, but in practice this is usually not noticeable.
         BeginInitializationEntityCommandBufferSystem m_EntityCommandBufferSystem;
 
         protected override void OnCreate()
         {
-            // Cache the BeginInitializationEntityCommandBufferSystem in a field, so we don't have to create it every frame
             m_EntityCommandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
+        }
+
+        [BurstCompile(CompileSynchronously = true)]
+        struct NursecareSpawnerJob : IJobForEachWithEntity<NursecareSpawner, LocalToWorld>
+        {
+            public EntityCommandBuffer.Concurrent CommandBuffer;
+            public void Execute(Entity entity, int index, [ReadOnly] ref NursecareSpawner nursecareSpawner, [ReadOnly] ref LocalToWorld location)
+            {
+                for (int i = 0; i < nursecareSpawner.PositionCount; i++) {
+                    var instance = CommandBuffer.Instantiate(index, nursecareSpawner.Prefab);
+                    CommandBuffer.SetComponent(index, instance, new NursecareData { Index = i });
+                }
+
+                CommandBuffer.DestroyEntity(index, entity); // Delete Spawner
+            }
         }
 
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
-            //Instead of performing structural changes directly, a Job can add a command to an EntityCommandBuffer to perform such changes on the main thread after the Job has finished.
-            //Command buffers allow you to perform any, potentially costly, calculations on a worker thread, while queuing up the actual insertions and deletions for later.
-            var commandBuffer = m_EntityCommandBufferSystem.CreateCommandBuffer().ToConcurrent();
-
-            // Schedule the Entities.ForEach lambda job that will add Instantiate commands to the EntityCommandBuffer.
-            // Since this job only runs on the first frame, we want to ensure Burst compiles it before running to get the best performance (3rd parameter of WithBurst)
-            // The actual job will be cached once it is compiled (it will only get Burst compiled once).
-            var jobHandle = Entities
-            .WithBurst(FloatMode.Default, FloatPrecision.Standard, true)
-            .ForEach((Entity entity, int entityInQueryIndex, in NursecareSpawner nursecareSpawner, in LocalToWorld location) =>
+            var jobHandle = new NursecareSpawnerJob
             {
-                for (var i = 0; i < nursecareSpawner.PositionCount; i++) {
-                    var instance = commandBuffer.Instantiate(entityInQueryIndex, nursecareSpawner.Prefab);
+                CommandBuffer = m_EntityCommandBufferSystem.CreateCommandBuffer().ToConcurrent()
+            }.Schedule(this, inputDeps);
 
-                                        // Place the instantiated in a grid with some noise
-                    var position = math.transform(location.Value, new float3(i * 1.3F, 0, 0));
-                    commandBuffer.SetComponent(entityInQueryIndex, instance, new Translation {Value = position});
-                }
-
-                commandBuffer.DestroyEntity(entityInQueryIndex, entity);
-            }).Schedule(inputDeps);
-
-            // SpawnJob runs in parallel with no sync point until the barrier system executes.
-            // When the barrier system executes we want to complete the SpawnJob and then play back the commands (Creating the entities and placing them).
-            // We need to tell the barrier system which job it needs to complete before it can play back the commands.
             m_EntityCommandBufferSystem.AddJobHandleForProducer(jobHandle);
 
             return jobHandle;

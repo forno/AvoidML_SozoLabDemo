@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8627937681090847848}
   - component: {fileID: 4779024373328172942}
   - component: {fileID: 8231318426120682932}
+  - component: {fileID: 2119003639295889667}
   m_Layer: 0
-  m_Name: Nursecare Sphere
+  m_Name: NursecareSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7545445525192044403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -153,3 +154,16 @@ MonoBehaviour:
       m_Override: 0
       m_Value: 0000000000000000
   m_ConvexRadius_Deprecated: -1
+--- !u!114 &2119003639295889667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545445525192044403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc7720d6377c2d46b228106e7f506f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Index: 0
