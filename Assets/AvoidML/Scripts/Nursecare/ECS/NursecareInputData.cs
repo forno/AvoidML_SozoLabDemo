@@ -12,10 +12,7 @@ using UnityEngine;
 namespace AvoidML.Nursecare
 {
     [GenerateAuthoringComponent]
-    public struct NursecareInputData : IComponentData
-    {
-        public bool IsEnabled;
-    }
+    public struct NursecareInputData : IComponentData { }
 
     [DisableAutoCreation]
     public class NursecareInputDataSystem : JobComponentSystem
@@ -23,6 +20,7 @@ namespace AvoidML.Nursecare
         public Mocap2float3s mocap2float3s;
 
         private EntityQuery m_Query;
+        private EndInitializationEntityCommandBufferSystem m_CommandBufferSystem;
 
         protected override void OnCreate()
         {
@@ -30,29 +28,39 @@ namespace AvoidML.Nursecare
 
             m_Query = GetEntityQuery(new EntityQueryDesc
             {
-                All = new ComponentType[] { ComponentType.ReadOnly<NursecareData>(), typeof(NursecareInputData), typeof(TargetPosition), typeof(TargetPosition2LerpVelocity) },
+                All = new ComponentType[] {
+                    ComponentType.ReadOnly<NursecareData>(),
+                    ComponentType.ReadOnly<NursecareInputData>(),
+                    typeof(TargetPosition),
+                    typeof(TargetPosition2LerpVelocity) },
                 Options = EntityQueryOptions.IncludeDisabled
             });
+            m_CommandBufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndInitializationEntityCommandBufferSystem>();
         }
 
+        [RequireComponentTag(typeof(NursecareInputData))]
         [BurstCompile]
-        struct NursecareUpdaterJob : IJobForEach<NursecareData, NursecareInputData, TargetPosition, TargetPosition2LerpVelocity>
+        struct NursecareUpdaterJob : IJobForEachWithEntity<NursecareData, TargetPosition, TargetPosition2LerpVelocity>
         {
             [ReadOnly] public float nextTime;
             [ReadOnly, DeallocateOnJobCompletion] public NativeArray<float3> positions;
             [ReadOnly, DeallocateOnJobCompletion] public NativeArray<bool> isEnableds;
 
+            public EntityCommandBuffer.Concurrent CommandBuffer;
+
             public void Execute(
+                Entity entity,
+                int index,
                 [ReadOnly] ref NursecareData nursecareData,
-                ref NursecareInputData nursecareInputData,
-                ref TargetPosition targetPosition,
-                ref TargetPosition2LerpVelocity lerpInfo)
+                [WriteOnly] ref TargetPosition targetPosition,
+                [WriteOnly] ref TargetPosition2LerpVelocity lerpInfo)
             {
-                var isEnabled = isEnableds[nursecareData.Index];
-                nursecareInputData = new NursecareInputData { IsEnabled = isEnabled };
-                if (isEnabled) {
+                if (isEnableds[nursecareData.Index]) {
                     targetPosition = new TargetPosition { Value = positions[nursecareData.Index] };
                     lerpInfo = new TargetPosition2LerpVelocity { reachTime = nextTime };
+                    CommandBuffer.RemoveComponent<Disabled>(index, entity);
+                } else {
+                    CommandBuffer.AddComponent<Disabled>(index, entity);
                 }
             }
         }
@@ -65,47 +73,21 @@ namespace AvoidML.Nursecare
             if (positions == null) {
                 mocap2float3s.Dispose();
                 mocap2float3s = null;
-                // Disable all data
-                return Entities.WithBurst().ForEach((ref NursecareInputData inputData) => inputData.IsEnabled = false).Schedule(inputDependencies);
+                EntityCommandBuffer.Concurrent CommandBuffer = m_CommandBufferSystem.CreateCommandBuffer().ToConcurrent();
+                var destructJob = Entities.WithAll<NursecareInputData>().WithBurst().ForEach((Entity e, int entityInQueryIndex) => CommandBuffer.AddComponent<Disabled>(entityInQueryIndex, e)).Schedule(inputDependencies);
+                m_CommandBufferSystem.AddJobHandleForProducer(destructJob);
+                return destructJob;
             }
 
-            return new NursecareUpdaterJob
+            var job = new NursecareUpdaterJob
             {
                 nextTime = UnityEngine.Time.fixedTime + Constants.timeInterval / UnityEngine.Time.timeScale,
                 positions = new NativeArray<float3>(Array.ConvertAll(positions, (v) => v ?? 0), Allocator.TempJob),
                 isEnableds = new NativeArray<bool>(Array.ConvertAll(positions, (v) => v != null), Allocator.TempJob),
+                CommandBuffer = m_CommandBufferSystem.CreateCommandBuffer().ToConcurrent()
             }.Schedule(m_Query, inputDependencies);
-        }
-    }
-
-    [UpdateInGroup(typeof(InitializationSystemGroup))]
-    public class NursecareInputDataImpicitSystem : JobComponentSystem
-    {
-        private EndInitializationEntityCommandBufferSystem m_CommandBufferSystem;
-
-        protected override void OnCreate()
-        {
-            m_CommandBufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndInitializationEntityCommandBufferSystem>();
-        }
-
-        protected override JobHandle OnUpdate(JobHandle inputDeps)
-        {
-            EntityCommandBuffer.Concurrent CommandBuffer = m_CommandBufferSystem.CreateCommandBuffer().ToConcurrent();
-
-            var job = Entities
-                .WithEntityQueryOptions(EntityQueryOptions.IncludeDisabled)
-                .WithChangeFilter<NursecareInputData>()
-                .WithBurst()
-                .ForEach((Entity e, int entityInQueryIndex, in NursecareInputData inputData) =>
-                {
-                    if (inputData.IsEnabled) {
-                        CommandBuffer.RemoveComponent<Disabled>(entityInQueryIndex, e);
-                    } else
-                        CommandBuffer.AddComponent<Disabled>(entityInQueryIndex, e);
-                }).Schedule(inputDeps);
 
             m_CommandBufferSystem.AddJobHandleForProducer(job);
-
             return job;
         }
     }
