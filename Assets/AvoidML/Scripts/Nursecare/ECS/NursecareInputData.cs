@@ -87,17 +87,17 @@ namespace AvoidML.Nursecare
                 TargetPositionType = GetArchetypeChunkComponentType<TargetPosition>(false),
                 TargetPosition2LerpVelocityType = GetArchetypeChunkComponentType<TargetPosition2LerpVelocity>(false)
             }.Schedule(m_Query, inputDependencies);
-
         }
     }
 
+    [UpdateInGroup(typeof(InitializationSystemGroup))]
     public class NursecareInputDataImpicitSystem : JobComponentSystem
     {
-        private EndSimulationEntityCommandBufferSystem m_CommandBufferSystem;
+        private EndInitializationEntityCommandBufferSystem m_CommandBufferSystem;
 
         protected override void OnCreate()
         {
-            m_CommandBufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+            m_CommandBufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndInitializationEntityCommandBufferSystem>();
         }
 
         protected override JobHandle OnUpdate(JobHandle inputDeps)

@@ -2,6 +2,7 @@
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
+using Unity.Mathematics;
 using Unity.Transforms;
 
 namespace AvoidML.Nursecare
@@ -10,28 +11,34 @@ namespace AvoidML.Nursecare
     public struct NursecareSpawner : IComponentData
     {
         public Entity Prefab;
-        public int PositionCount;
     }
 
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     public class NursecareSpawnerSystem : JobComponentSystem
     {
         BeginInitializationEntityCommandBufferSystem m_EntityCommandBufferSystem;
+        Entity parent;
 
         protected override void OnCreate()
         {
-            m_EntityCommandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
+            m_EntityCommandBufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
+            parent = World.EntityManager.CreateEntity(typeof(LocalToWorld));
+            World.EntityManager.SetComponentData(parent, new LocalToWorld { Value = float4x4.identity });
         }
 
         [BurstCompile(CompileSynchronously = true)]
-        struct NursecareSpawnerJob : IJobForEachWithEntity<NursecareSpawner, LocalToWorld>
+        struct NursecareSpawnerJob : IJobForEachWithEntity<NursecareSpawner>
         {
             public EntityCommandBuffer.Concurrent CommandBuffer;
-            public void Execute(Entity entity, int index, [ReadOnly] ref NursecareSpawner nursecareSpawner, [ReadOnly] ref LocalToWorld location)
+            public Entity Parent;
+
+            public void Execute(Entity entity, int index, [ReadOnly] ref NursecareSpawner nursecareSpawner)
             {
-                for (int i = 0; i < nursecareSpawner.PositionCount; i++) {
+                for (int i = 0; i < Constants.positionCount; i++) {
                     var instance = CommandBuffer.Instantiate(index, nursecareSpawner.Prefab);
                     CommandBuffer.SetComponent(index, instance, new NursecareData { Index = i });
+                    CommandBuffer.AddComponent(index, instance, new Parent { Value = Parent });
+                    CommandBuffer.AddComponent<LocalToParent>(index, instance);
                 }
 
                 // Delete Spawner
@@ -43,7 +50,8 @@ namespace AvoidML.Nursecare
         {
             var jobHandle = new NursecareSpawnerJob
             {
-                CommandBuffer = m_EntityCommandBufferSystem.CreateCommandBuffer().ToConcurrent()
+                CommandBuffer = m_EntityCommandBufferSystem.CreateCommandBuffer().ToConcurrent(),
+                Parent = parent
             }.Schedule(this, inputDeps);
 
             m_EntityCommandBufferSystem.AddJobHandleForProducer(jobHandle);

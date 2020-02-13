@@ -200,7 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
-  PositionCount: 29
 --- !u!4 &791452387
 Transform:
   m_ObjectHideFlags: 0
