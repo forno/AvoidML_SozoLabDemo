@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4779024373328172942}
   - component: {fileID: 8231318426120682932}
   - component: {fileID: 7445765707674039022}
+  - component: {fileID: 7286564537284862289}
   - component: {fileID: 2119003639295889667}
   - component: {fileID: -4001969947553599210}
   - component: {fileID: 1834997906325955257}
@@ -133,7 +134,7 @@ MonoBehaviour:
     m_Template: {fileID: 0}
     m_IsTrigger:
       m_Override: 0
-      m_Value: 0
+      m_Value: 1
     m_Friction:
       m_Override: 0
       m_Value:
@@ -146,7 +147,7 @@ MonoBehaviour:
         CombineMode: 2
     m_BelongsTo:
       m_Override: 0
-      m_Value: 0101010101010101010101010101010101010101010101010101010101010101
+      m_Value: 0000010100000000000000000000000000000000000000000000000000000000
     m_CollidesWith:
       m_Override: 0
       m_Value: 0101010101010101010101010101010101010101010101010101010101010101
@@ -206,6 +207,19 @@ MonoBehaviour:
     Tag05: 0
     Tag06: 0
     Tag07: 0
+--- !u!114 &7286564537284862289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545445525192044403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a737dd352490bb14594caff1c166ed0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Index: 0
 --- !u!114 &2119003639295889667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc7720d6377c2d46b228106e7f506f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Index: 0
+  IsEnabled: 0
 --- !u!114 &-4001969947553599210
 MonoBehaviour:
   m_ObjectHideFlags: 0

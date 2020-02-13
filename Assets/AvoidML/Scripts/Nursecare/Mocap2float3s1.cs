@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Forno.CSV;
+using System;
 using Unity.Mathematics;
 
-namespace Forno.Nursecare
+namespace AvoidML.Nursecare
 {
     public class Mocap2float3s : IDisposable
     {
-        private CSV.TextField NursecareTextTield;
+        private TextField NursecareTextTield;
 
         public Mocap2float3s(string path)
         {
-            NursecareTextTield = new CSV.TextField(path);
+            NursecareTextTield = new TextField(path);
             // Discard header
             if (Constants.hasHeader)
                 NursecareTextTield.MoveNext();

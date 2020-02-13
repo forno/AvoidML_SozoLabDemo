@@ -1,4 +1,4 @@
-﻿namespace Forno.Nursecare
+﻿namespace AvoidML.Nursecare
 {
     public static class Constants
     {

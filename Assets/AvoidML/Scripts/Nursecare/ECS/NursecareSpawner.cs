@@ -2,17 +2,15 @@
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
-using Unity.Mathematics;
 using Unity.Transforms;
-using static Unity.Mathematics.math;
 
-namespace Forno.Nursecare
+namespace AvoidML.Nursecare
 {
     [GenerateAuthoringComponent]
     public struct NursecareSpawner : IComponentData
     {
         public Entity Prefab;
-        public uint PositionCount;
+        public int PositionCount;
     }
 
     [UpdateInGroup(typeof(SimulationSystemGroup))]
@@ -33,7 +31,7 @@ namespace Forno.Nursecare
             {
                 for (int i = 0; i < nursecareSpawner.PositionCount; i++) {
                     var instance = CommandBuffer.Instantiate(index, nursecareSpawner.Prefab);
-                    CommandBuffer.SetComponent(index, instance, new NursecareInputData { Index = i });
+                    CommandBuffer.SetComponent(index, instance, new NursecareData { Index = i });
                 }
 
                 // Delete Spawner

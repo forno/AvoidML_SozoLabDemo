@@ -9,12 +9,12 @@ using Unity.Mathematics;
 using Unity.Physics;
 using UnityEngine;
 
-namespace Forno.Nursecare
+namespace AvoidML.Nursecare
 {
     [GenerateAuthoringComponent]
     public struct NursecareInputData : IComponentData
     {
-        public int Index;
+        public bool IsEnabled;
     }
 
     [DisableAutoCreation]
@@ -22,26 +22,46 @@ namespace Forno.Nursecare
     {
         public Mocap2float3s mocap2float3s;
 
-        BeginInitializationEntityCommandBufferSystem m_EntityCommandBufferSystem;
+        private EntityQuery m_Query;
 
         protected override void OnCreate()
         {
-            m_EntityCommandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
             mocap2float3s = new Mocap2float3s(Path.Combine(Application.streamingAssetsPath, "nursecare/mocap/train/segment0.csv"));
+
+            m_Query = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new ComponentType[] { ComponentType.ReadOnly<NursecareData>(), typeof(NursecareInputData), typeof(TargetPosition), typeof(TargetPosition2LerpVelocity) },
+                Options = EntityQueryOptions.IncludeDisabled
+            });
         }
 
         [BurstCompile]
-        struct NursecareUpdaterJob : IJobForEach<NursecareInputData, TargetPosition, TargetPosition2LerpVelocity>
+        struct NursecareUpdaterJob : IJobChunk
         {
-            [ReadOnly, DeallocateOnJobCompletion]
-            public NativeArray<float3> positions;
-            [ReadOnly]
-            public float elapsedTime;
+            [ReadOnly] public float nextTime;
+            [ReadOnly, DeallocateOnJobCompletion] public NativeArray<float3> positions;
+            [ReadOnly, DeallocateOnJobCompletion] public NativeArray<bool> isEnableds;
 
-            public void Execute([ReadOnly] ref NursecareInputData nursecareData, [WriteOnly] ref TargetPosition targetPosition, [WriteOnly] ref TargetPosition2LerpVelocity lerpInfo)
+            [ReadOnly] public ArchetypeChunkComponentType<NursecareData> NursecareDataType;
+            public ArchetypeChunkComponentType<NursecareInputData> NursecareInputDataType;
+            public ArchetypeChunkComponentType<TargetPosition> TargetPositionType;
+            public ArchetypeChunkComponentType<TargetPosition2LerpVelocity> TargetPosition2LerpVelocityType;
+
+            public void Execute(ArchetypeChunk chunk, int chunkIndex, int firstEntityIndex)
             {
-                targetPosition.Value = positions[nursecareData.Index];
-                lerpInfo.reachTime = elapsedTime + Constants.timeInterval;
+                var chunkNursecareData = chunk.GetNativeArray(NursecareDataType);
+                var chunkNursecareInputData = chunk.GetNativeArray(NursecareInputDataType);
+                var chunkTargetPosition = chunk.GetNativeArray(TargetPositionType);
+                var chunkLerpInfo = chunk.GetNativeArray(TargetPosition2LerpVelocityType);
+
+                for (var i = 0; i < chunk.Count; ++i) {
+                    var isEnabled = isEnableds[chunkNursecareData[i].Index];
+                    chunkNursecareInputData[i] = new NursecareInputData { IsEnabled = isEnabled };
+                    if (isEnabled) {
+                        chunkTargetPosition[i] = new TargetPosition { Value = positions[chunkNursecareData[i].Index] };
+                        chunkLerpInfo[i] = new TargetPosition2LerpVelocity { reachTime = nextTime };
+                    }
+                }
             }
         }
 
@@ -53,17 +73,52 @@ namespace Forno.Nursecare
             if (positions == null) {
                 mocap2float3s.Dispose();
                 mocap2float3s = null;
-                return inputDependencies;
+                // Disable all data
+                return Entities.WithBurst().ForEach((ref NursecareInputData inputData) => inputData.IsEnabled = false).Schedule(inputDependencies);
             }
 
-            var values = new NativeArray<float3>(Array.ConvertAll(positions, (v) => v ?? 0), Allocator.TempJob);
-            var job = new NursecareUpdaterJob
+            return new NursecareUpdaterJob
             {
-                positions = values,
-                elapsedTime = UnityEngine.Time.fixedTime
-            };
+                nextTime = UnityEngine.Time.fixedTime + Constants.timeInterval / UnityEngine.Time.timeScale,
+                positions = new NativeArray<float3>(Array.ConvertAll(positions, (v) => v ?? 0), Allocator.TempJob),
+                isEnableds = new NativeArray<bool>(Array.ConvertAll(positions, (v) => v != null), Allocator.TempJob),
+                NursecareDataType = GetArchetypeChunkComponentType<NursecareData>(true),
+                NursecareInputDataType = GetArchetypeChunkComponentType<NursecareInputData>(false),
+                TargetPositionType = GetArchetypeChunkComponentType<TargetPosition>(false),
+                TargetPosition2LerpVelocityType = GetArchetypeChunkComponentType<TargetPosition2LerpVelocity>(false)
+            }.Schedule(m_Query, inputDependencies);
 
-            return job.Schedule(this, inputDependencies);
+        }
+    }
+
+    public class NursecareInputDataImpicitSystem : JobComponentSystem
+    {
+        private EndSimulationEntityCommandBufferSystem m_CommandBufferSystem;
+
+        protected override void OnCreate()
+        {
+            m_CommandBufferSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+        }
+
+        protected override JobHandle OnUpdate(JobHandle inputDeps)
+        {
+            EntityCommandBuffer.Concurrent CommandBuffer = m_CommandBufferSystem.CreateCommandBuffer().ToConcurrent();
+
+            var job = Entities
+                .WithEntityQueryOptions(EntityQueryOptions.IncludeDisabled)
+                .WithChangeFilter<NursecareInputData>()
+                .WithBurst()
+                .ForEach((Entity e, int entityInQueryIndex, in NursecareInputData inputData) =>
+                {
+                    if (inputData.IsEnabled) {
+                        CommandBuffer.RemoveComponent<Disabled>(entityInQueryIndex, e);
+                    } else
+                        CommandBuffer.AddComponent<Disabled>(entityInQueryIndex, e);
+                }).Schedule(inputDeps);
+
+            m_CommandBufferSystem.AddJobHandleForProducer(job);
+
+            return job;
         }
     }
 }
