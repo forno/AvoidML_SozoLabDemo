@@ -1,6 +1,6 @@
 ﻿using Forno.Ecs;
-using System;
 using System.IO;
+using System;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
@@ -11,8 +11,14 @@ using UnityEngine;
 
 namespace AvoidML.Nursecare
 {
+    [GenerateAuthoringComponent]
+    public struct NursecareInputData : IComponentData
+    {
+        public int Index;
+    }
+
     [DisableAutoCreation]
-    public class NursecareUpdater : JobComponentSystem
+    public class NursecareInputDataSystem : JobComponentSystem
     {
         public Mocap2float3s mocap2float3s;
 
@@ -22,14 +28,14 @@ namespace AvoidML.Nursecare
         }
 
         [BurstCompile]
-        struct NursecareUpdaterJob : IJobForEach<NursecareData, TargetPosition, TargetPosition2LerpVelocity>
+        struct NursecareUpdaterJob : IJobForEach<NursecareInputData, TargetPosition, TargetPosition2LerpVelocity>
         {
             [ReadOnly, DeallocateOnJobCompletion]
             public NativeArray<float3> positions;
             [ReadOnly]
             public float elapsedTime;
 
-            public void Execute([ReadOnly] ref NursecareData nursecareData, [WriteOnly] ref TargetPosition targetPosition, [WriteOnly] ref TargetPosition2LerpVelocity lerpInfo)
+            public void Execute([ReadOnly] ref NursecareInputData nursecareData, [WriteOnly] ref TargetPosition targetPosition, [WriteOnly] ref TargetPosition2LerpVelocity lerpInfo)
             {
                 targetPosition.Value = positions[nursecareData.Index];
                 lerpInfo.reachTime = elapsedTime + Constants.timeInterval;

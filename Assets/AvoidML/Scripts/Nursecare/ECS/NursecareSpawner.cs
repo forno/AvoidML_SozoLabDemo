@@ -33,7 +33,7 @@ namespace AvoidML.Nursecare
             {
                 for (int i = 0; i < nursecareSpawner.PositionCount; i++) {
                     var instance = CommandBuffer.Instantiate(index, nursecareSpawner.Prefab);
-                    CommandBuffer.SetComponent(index, instance, new NursecareData { Index = i });
+                    CommandBuffer.SetComponent(index, instance, new NursecareInputData { Index = i });
                 }
 
                 // Delete Spawner

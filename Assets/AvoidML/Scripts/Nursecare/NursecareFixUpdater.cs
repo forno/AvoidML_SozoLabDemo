@@ -7,11 +7,11 @@ namespace AvoidML.Nursecare
 {
     public class NursecareFixUpdater : MonoBehaviour
     {
-        private NursecareUpdater updater;
+        private NursecareInputDataSystem updater;
         // Start is called before the first frame update
         void Start()
         {
-            updater = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<NursecareUpdater>();
+            updater = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<NursecareInputDataSystem>();
             Time.fixedDeltaTime = Constants.timeInterval;
         }
 
