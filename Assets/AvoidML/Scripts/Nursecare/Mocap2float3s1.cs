@@ -10,7 +10,9 @@ namespace AvoidML.Nursecare
         public Mocap2float3s(string path)
         {
             NursecareTextTield = new CSV.TextField(path);
-            NursecareTextTield.MoveNext();
+            // Discard header
+            if (Constants.hasHeader)
+                NursecareTextTield.MoveNext();
         }
 
         public void Dispose()
@@ -25,13 +27,11 @@ namespace AvoidML.Nursecare
             float?[] fields = Array.ConvertAll<string, float?>(NursecareTextTield.Current, x =>
             {
                 float v;
-                // convert to meter from millimeter
-                if (float.TryParse(x, out v)) return v / 1000;
+                if (float.TryParse(x, out v)) return v * Constants.convert2meter;
                 else return null;
             });
 
-            // hardcode size for nursecare
-            float3?[] values = new float3?[29];
+            float3?[] values = new float3?[Constants.positionCount];
             for(uint i = 0; i < values.Length; ++i) {
                 // Convert coordinate system
                 var v0 = fields[i * 3];

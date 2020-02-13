@@ -12,7 +12,7 @@ namespace AvoidML.Nursecare
         void Start()
         {
             updater = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<NursecareUpdater>();
-            Time.fixedDeltaTime = 1f / 100f; // hardcode: 100hz data
+            Time.fixedDeltaTime = Constants.timeInterval;
         }
 
         // Update is called once per frame
