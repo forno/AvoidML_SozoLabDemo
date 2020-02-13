@@ -36,31 +36,23 @@ namespace AvoidML.Nursecare
         }
 
         [BurstCompile]
-        struct NursecareUpdaterJob : IJobChunk
+        struct NursecareUpdaterJob : IJobForEach<NursecareData, NursecareInputData, TargetPosition, TargetPosition2LerpVelocity>
         {
             [ReadOnly] public float nextTime;
             [ReadOnly, DeallocateOnJobCompletion] public NativeArray<float3> positions;
             [ReadOnly, DeallocateOnJobCompletion] public NativeArray<bool> isEnableds;
 
-            [ReadOnly] public ArchetypeChunkComponentType<NursecareData> NursecareDataType;
-            public ArchetypeChunkComponentType<NursecareInputData> NursecareInputDataType;
-            public ArchetypeChunkComponentType<TargetPosition> TargetPositionType;
-            public ArchetypeChunkComponentType<TargetPosition2LerpVelocity> TargetPosition2LerpVelocityType;
-
-            public void Execute(ArchetypeChunk chunk, int chunkIndex, int firstEntityIndex)
+            public void Execute(
+                [ReadOnly] ref NursecareData nursecareData,
+                ref NursecareInputData nursecareInputData,
+                ref TargetPosition targetPosition,
+                ref TargetPosition2LerpVelocity lerpInfo)
             {
-                var chunkNursecareData = chunk.GetNativeArray(NursecareDataType);
-                var chunkNursecareInputData = chunk.GetNativeArray(NursecareInputDataType);
-                var chunkTargetPosition = chunk.GetNativeArray(TargetPositionType);
-                var chunkLerpInfo = chunk.GetNativeArray(TargetPosition2LerpVelocityType);
-
-                for (var i = 0; i < chunk.Count; ++i) {
-                    var isEnabled = isEnableds[chunkNursecareData[i].Index];
-                    chunkNursecareInputData[i] = new NursecareInputData { IsEnabled = isEnabled };
-                    if (isEnabled) {
-                        chunkTargetPosition[i] = new TargetPosition { Value = positions[chunkNursecareData[i].Index] };
-                        chunkLerpInfo[i] = new TargetPosition2LerpVelocity { reachTime = nextTime };
-                    }
+                var isEnabled = isEnableds[nursecareData.Index];
+                nursecareInputData = new NursecareInputData { IsEnabled = isEnabled };
+                if (isEnabled) {
+                    targetPosition = new TargetPosition { Value = positions[nursecareData.Index] };
+                    lerpInfo = new TargetPosition2LerpVelocity { reachTime = nextTime };
                 }
             }
         }
@@ -82,10 +74,6 @@ namespace AvoidML.Nursecare
                 nextTime = UnityEngine.Time.fixedTime + Constants.timeInterval / UnityEngine.Time.timeScale,
                 positions = new NativeArray<float3>(Array.ConvertAll(positions, (v) => v ?? 0), Allocator.TempJob),
                 isEnableds = new NativeArray<bool>(Array.ConvertAll(positions, (v) => v != null), Allocator.TempJob),
-                NursecareDataType = GetArchetypeChunkComponentType<NursecareData>(true),
-                NursecareInputDataType = GetArchetypeChunkComponentType<NursecareInputData>(false),
-                TargetPositionType = GetArchetypeChunkComponentType<TargetPosition>(false),
-                TargetPosition2LerpVelocityType = GetArchetypeChunkComponentType<TargetPosition2LerpVelocity>(false)
             }.Schedule(m_Query, inputDependencies);
         }
     }
