@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using static Unity.Mathematics.math;
 
-namespace AvoidML.Nursecare
+namespace Forno.Nursecare
 {
     [GenerateAuthoringComponent]
     public struct NursecareSpawner : IComponentData

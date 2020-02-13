@@ -9,7 +9,7 @@ using Unity.Mathematics;
 using Unity.Physics;
 using UnityEngine;
 
-namespace AvoidML.Nursecare
+namespace Forno.Nursecare
 {
     [GenerateAuthoringComponent]
     public struct NursecareInputData : IComponentData
@@ -22,8 +22,11 @@ namespace AvoidML.Nursecare
     {
         public Mocap2float3s mocap2float3s;
 
+        BeginInitializationEntityCommandBufferSystem m_EntityCommandBufferSystem;
+
         protected override void OnCreate()
         {
+            m_EntityCommandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
             mocap2float3s = new Mocap2float3s(Path.Combine(Application.streamingAssetsPath, "nursecare/mocap/train/segment0.csv"));
         }
 

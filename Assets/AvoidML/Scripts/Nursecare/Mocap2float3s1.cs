@@ -1,7 +1,7 @@
 ﻿using System;
 using Unity.Mathematics;
 
-namespace AvoidML.Nursecare
+namespace Forno.Nursecare
 {
     public class Mocap2float3s : IDisposable
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-namespace AvoidML.Nursecare
+namespace Forno.Nursecare
 {
     public class NursecareFixUpdater : MonoBehaviour
     {
