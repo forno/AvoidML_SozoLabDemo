@@ -1,0 +1,2376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5651887608075526242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2756001711956689266}
+  m_Layer: 0
+  m_Name: NursecareObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2756001711956689266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651887608075526242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6402277774584096428}
+  - {fileID: 621979909560885682}
+  - {fileID: 1182817347162614824}
+  - {fileID: 7714669416386244743}
+  - {fileID: 2854541266733569740}
+  - {fileID: 4500872379594611719}
+  - {fileID: 5005770360561081817}
+  - {fileID: 3001942358958398574}
+  - {fileID: 998443044040271180}
+  - {fileID: 6063151005838512802}
+  - {fileID: 4303085231031975636}
+  - {fileID: 6190239785455331463}
+  - {fileID: 3852019151316836213}
+  - {fileID: 7471642860922523818}
+  - {fileID: 4975816854907945953}
+  - {fileID: 5115049217880952975}
+  - {fileID: 4409559161492850734}
+  - {fileID: 4986506886507636613}
+  - {fileID: 7432673714849155196}
+  - {fileID: 7913764498707719682}
+  - {fileID: 1039045228514782891}
+  - {fileID: 1000052000998423844}
+  - {fileID: 7809656146393422817}
+  - {fileID: 6971566697258623556}
+  - {fileID: 3209117148923117307}
+  - {fileID: 7645304813503389550}
+  - {fileID: 7008352180673582667}
+  - {fileID: 2791955337684675859}
+  - {fileID: 783420306839164563}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1168309632382719847
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7432673714849155196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168309632382719847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1197985739703291825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7471642860922523818 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1197985739703291825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1608393215092934992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7008352180673582667 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1608393215092934992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1706715617725939039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &6971566697258623556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1706715617725939039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1928619086883027225
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7913764498707719682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1928619086883027225}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1977637508130309370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7809656146393422817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1977637508130309370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2017754209719742364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7714669416386244743 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017754209719742364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2092227751298023541
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &7645304813503389550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2092227751298023541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2519944857815840668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &6190239785455331463 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2519944857815840668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2536689332005096889
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &6063151005838512802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2536689332005096889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3443555526516406711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &6402277774584096428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3443555526516406711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3597474636168581012
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &5115049217880952975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3597474636168581012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3611083328357260538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &4975816854907945953 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3611083328357260538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3612770501844465822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &4986506886507636613 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3612770501844465822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3632315456239256258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &5005770360561081817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3632315456239256258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4784403029960720494
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &3852019151316836213 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4784403029960720494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5289140914709316380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &4500872379594611719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5289140914709316380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5341661165732271925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &4409559161492850734 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5341661165732271925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5523422013726826959
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &4303085231031975636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5523422013726826959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5804537519671888343
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &2854541266733569740 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5804537519671888343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5886071263949107720
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &2791955337684675859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5886071263949107720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6600466424111325664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &3209117148923117307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6600466424111325664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6825636918362407797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &3001942358958398574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6825636918362407797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7456470229488333619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &1182817347162614824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7456470229488333619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8753849888515649968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &1039045228514782891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8753849888515649968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8848355688332376663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &998443044040271180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8848355688332376663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8858694583199769151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &1000052000998423844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8858694583199769151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9065683003599522184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &783420306839164563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 9065683003599522184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9201194165901147817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2756001711956689266}
+    m_Modifications:
+    - target: {fileID: 7286564537284862289, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_Name
+      value: NursecareSphere (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
+--- !u!4 &621979909560885682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8579500461418176283, guid: 769f8135b252dbe46b1510c29233dc5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 9201194165901147817}
+  m_PrefabAsset: {fileID: 0}

@@ -39,30 +39,9 @@ namespace Forno.CSV
             stream = new StreamReader(path, encoding ?? Encoding.UTF8);
         }
 
-        #region IDisposable Support
-        private bool disposedValue = false; // 重複する呼び出しを検出するには
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue) {
-                if (disposing) {
-                    stream.Dispose();
-                }
-
-                disposedValue = true;
-            }
-        }
-
-        ~TextField()
-        {
-            Dispose(false);
-        }
-
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            stream.Dispose();
         }
-        #endregion
     }
 }
