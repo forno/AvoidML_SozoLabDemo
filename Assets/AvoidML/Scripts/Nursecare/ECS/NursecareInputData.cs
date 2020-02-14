@@ -124,5 +124,11 @@ namespace AvoidML.Nursecare
             m_CommandBufferSystem.AddJobHandleForProducer(job);
             return job;
         }
+
+        protected override void OnDestroy()
+        {
+            if (mocap2float3s != null)
+                mocap2float3s.Dispose();
+        }
     }
 }
