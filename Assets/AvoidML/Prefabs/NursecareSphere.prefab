@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 8231318426120682932}
   - component: {fileID: 7445765707674039022}
   - component: {fileID: 7286564537284862289}
-  - component: {fileID: 2119003639295889667}
-  - component: {fileID: -4001969947553599210}
-  - component: {fileID: 1834997906325955257}
+  - component: {fileID: 2798932234885791542}
+  - component: {fileID: 834406558123203367}
   m_Layer: 0
   m_Name: NursecareSphere
   m_TagString: Untagged
@@ -220,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Index: 0
---- !u!114 &2119003639295889667
+--- !u!114 &2798932234885791542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,10 +228,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7545445525192044403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc7720d6377c2d46b228106e7f506f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f97cedd02c791d488a678f7de3ca70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4001969947553599210
+--- !u!114 &834406558123203367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,16 +247,3 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
---- !u!114 &1834997906325955257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545445525192044403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b411c9f78486f9e479fa562d30e39e51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reachTime: 0
