@@ -69,7 +69,7 @@ namespace AvoidML.Nursecare
                         if (isEnableds[chunkNursecareData[i].Index]) {
                             var position = positions[chunkNursecareData[i].Index];
                             chunkTargetPosition[i] = new TargetPosition { Value = position };
-                            chunkTargetPosition2LerpVelocity[i] = new TargetPosition2LerpVelocity { reachTime = nextTime };
+                            chunkTargetPosition2LerpVelocity[i] = new TargetPosition2LerpVelocity { ReachTime = nextTime };
                             // Warp on Restore
                             chunkTranslation[i] = new Translation { Value = position };
                             CommandBuffer.RemoveComponent<Disabled>(chunkIndex, entities[i]);
@@ -79,7 +79,7 @@ namespace AvoidML.Nursecare
                     for (var i = 0; i < chunk.Count; ++i) {
                         if (isEnableds[chunkNursecareData[i].Index]) {
                             chunkTargetPosition[i] = new TargetPosition { Value = positions[chunkNursecareData[i].Index] };
-                            chunkTargetPosition2LerpVelocity[i] = new TargetPosition2LerpVelocity { reachTime = nextTime };
+                            chunkTargetPosition2LerpVelocity[i] = new TargetPosition2LerpVelocity { ReachTime = nextTime };
                         } else {
                             CommandBuffer.AddComponent<Disabled>(chunkIndex, entities[i]);
                         }

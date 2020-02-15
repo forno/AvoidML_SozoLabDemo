@@ -12,7 +12,7 @@ namespace Forno.Ecs
     [GenerateAuthoringComponent]
     public struct TargetPosition2LerpVelocity : IComponentData
     {
-        public float reachTime;
+        public float ReachTime;
     }
 
     [UpdateBefore(typeof(BuildPhysicsWorld))]
@@ -32,7 +32,7 @@ namespace Forno.Ecs
                     [ReadOnly] ref Translation translation,
                     [WriteOnly] ref PhysicsVelocity velocity)
             {
-                velocity.Linear = (targetPosition.Value - translation.Value) / math.max(systemInfo.reachTime - elapsedTime, impulseTime);
+                velocity.Linear = (targetPosition.Value - translation.Value) / math.max(systemInfo.ReachTime - elapsedTime, impulseTime);
             }
         }
 
