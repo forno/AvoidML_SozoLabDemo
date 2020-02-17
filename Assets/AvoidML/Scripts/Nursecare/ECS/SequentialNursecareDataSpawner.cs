@@ -18,6 +18,7 @@ namespace AvoidML.Nursecare
     {
         public GameObject Prefab;
         public string FilePath;
+        public bool HasHeader = true;
 
         public void DeclareReferencedPrefabs(List<GameObject> referencedPrefabs)
         {
@@ -28,28 +29,27 @@ namespace AvoidML.Nursecare
     public struct SequentialSettings
     {
         public Hash128 Hash;
-        public int PositionStartIndex;
-        public int PositionCount;
+        public int StartIndex;
+        public int Count;
     }
 
     public class SequentialNursecareDataConversionSystem : GameObjectConversionSystem
     {
-        public bool HasHeader = true;
 
         protected override void OnUpdate()
         {
             var processBlobAssets = new NativeList<Hash128>(Constants.positionCount, Allocator.Temp);
-            var currentIndex = 0;
-            var blobLength = 0;
             var blobFactoryPositions = new NativeList<float3>(Allocator.TempJob);
             var blobFactoryEnableds = new NativeList<bool>(Allocator.TempJob);
+            var blobLength = 0;
+            int currentIndex = 0;
 
             using (var positionContext = new BlobAssetComputationContext<SequentialSettings, SequentialPositionsBlobAsset>(BlobAssetStore, 32, Allocator.Temp))
             using (var enabledContext = new BlobAssetComputationContext<SequentialSettings, SequentialEnabledsBlobAsset>(BlobAssetStore, 32, Allocator.Temp)) {
                 Entities.ForEach((SequentialNursecareDataSpawner spawner) =>
                 {
                     var filePathHash = (uint)spawner.FilePath.GetHashCode();
-                    var isFirst = false;
+                    var isFirst = true;
                     var dataLength = -1;
                     for (var i = 0; i < Constants.positionCount; ++i) {
                         var hash = new Hash128(filePathHash, (uint)i, 0, 0);
@@ -61,18 +61,19 @@ namespace AvoidML.Nursecare
                         if (positionNeedToCompute || enabledNeedToCompute) {
                             if (isFirst) {
                                 isFirst = false;
+                                currentIndex = blobLength;
                                 var readToEnd = File.ReadAllLines(Path.Combine(Application.streamingAssetsPath, spawner.FilePath));
-                                dataLength = readToEnd.Length - (HasHeader ? 1 : 0);
-                                blobLength = blobLength + Constants.positionCount * dataLength;
+                                dataLength = readToEnd.Length - (spawner.HasHeader ? 1 : 0);
+                                blobLength += Constants.positionCount * dataLength;
                                 blobFactoryPositions.Resize(blobLength, NativeArrayOptions.UninitializedMemory);
                                 blobFactoryEnableds.Resize(blobLength, NativeArrayOptions.UninitializedMemory);
-                                fill(blobFactoryPositions, blobFactoryEnableds, readToEnd, HasHeader, currentIndex, Constants.positionCount);
+                                Fill(blobFactoryPositions, blobFactoryEnableds, readToEnd, spawner.HasHeader, currentIndex, Constants.positionCount);
                             }
                             var sequentialSettings = new SequentialSettings
                             {
                                 Hash = hash,
-                                PositionStartIndex = currentIndex + i * Constants.positionCount,
-                                PositionCount = dataLength
+                                StartIndex = currentIndex + i * Constants.positionCount,
+                                Count = dataLength
                             };
                             if (positionNeedToCompute)
                                 positionContext.AddBlobAssetToCompute(hash, sequentialSettings);
@@ -88,7 +89,8 @@ namespace AvoidML.Nursecare
                     var positionJobHandle = positionJob.Schedule(positionJob.Settings.Length, 1);
                     var enabledJob = new ComputeSequentialEnabledAssetJob(enabledSettings, blobFactoryEnableds);
                     var enabledJobHandle = enabledJob.Schedule(enabledJob.Settings.Length, 1);
-                    positionJobHandle.Complete(); enabledJobHandle.Complete();
+                    positionJobHandle.Complete();
+                    enabledJobHandle.Complete();
                     for (var i = 0; i < positionSettings.Length; ++i) {
                         positionContext.AddComputedBlobAsset(positionSettings[i].Hash, positionJob.BlobAssets[i]);
                     }
@@ -105,10 +107,11 @@ namespace AvoidML.Nursecare
                     using (var instances = new NativeArray<Entity>(Constants.positionCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory)) {
                         DstEntityManager.Instantiate(GetPrimaryEntity(spawner.Prefab), instances);
                         for (var i = 0; i < Constants.positionCount; ++i) {
-                            positionContext.GetBlobAsset(processBlobAssets[index++], out var positionBlob);
+                            positionContext.GetBlobAsset(processBlobAssets[index], out var positionBlob);
                             DstEntityManager.AddComponentData(instances[i], new SequentialPositions { Value = positionBlob });
                             enabledContext.GetBlobAsset(processBlobAssets[index], out var enabledBlob);
                             DstEntityManager.AddComponentData(instances[i], new SequentialEnableds { Value = enabledBlob });
+                            ++index;
                         }
                     }
                 });
@@ -119,18 +122,20 @@ namespace AvoidML.Nursecare
             }
         }
 
-        private static void fill(NativeArray<float3> dstPosition, NativeArray<bool> dstEnabled, string[] src, bool isIgnoreHead, int curIndex, int sliceSize)
+        private static void Fill(NativeArray<float3> dstPosition, NativeArray<bool> dstEnabled, string[] src, bool isIgnoreHead, int curIndex, int sliceSize)
         {
-            for (var i = (isIgnoreHead ? 1 : 0); i < src.Length; ++i) {
-                var data = Array.ConvertAll<string, float?>(src[i].Split(','), (string s) => { if (float.TryParse(s, out var f)) return f; else return null; });
+            var headSkip = isIgnoreHead ? 1 : 0;
+            var forLimit = src.Length - headSkip;
+            for (var i = 0; i < forLimit; ++i) {
+                var data = Array.ConvertAll<string, float?>(src[i + headSkip].Split(','), (string s) => { if (float.TryParse(s, out var f)) return f; else return null; });
                 for (var j = 0; j < sliceSize; ++j) {
                     // Convert coordinate system
                     var v0 = data[j * 3];
                     var v1 = data[j * 3 + 2];
                     var v2 = data[j * 3 + 1];
                     var isEnabled = v0.HasValue && v1.HasValue && v2.HasValue;
-                    dstPosition[curIndex + j * src.Length + i] = (isEnabled ? new float3(v0.Value, v1.Value, v2.Value) : new float3());
-                    dstEnabled[curIndex + j * src.Length + i] = isEnabled;
+                    dstPosition[curIndex + j * sliceSize + i] = (isEnabled ? new float3(v0.Value, v1.Value, v2.Value) : new float3());
+                    dstEnabled[curIndex + j * sliceSize + i] = isEnabled;
                 }
             }
         }
@@ -152,7 +157,17 @@ namespace AvoidML.Nursecare
 
         public void Execute(int index)
         {
-            throw new System.NotImplementedException();
+            var builder = new BlobBuilder(Allocator.Temp);
+            var settings = Settings[index];
+            ref var root = ref builder.ConstructRoot<SequentialPositionsBlobAsset>();
+            var array = builder.Allocate(ref root.Positions, settings.Count);
+
+            for (var i = 0; i < array.Length; ++i) {
+                array[i] = Positions[settings.StartIndex + i];
+            }
+
+            BlobAssets[index] = builder.CreateBlobAssetReference<SequentialPositionsBlobAsset>(Allocator.Persistent);
+            builder.Dispose();
         }
     }
 
@@ -172,7 +187,17 @@ namespace AvoidML.Nursecare
 
         public void Execute(int index)
         {
-            throw new NotImplementedException();
+            var builder = new BlobBuilder(Allocator.Temp);
+            var settings = Settings[index];
+            ref var root = ref builder.ConstructRoot<SequentialEnabledsBlobAsset>();
+            var array = builder.Allocate(ref root.Enableds, settings.Count);
+
+            for (var i = 0; i < array.Length; ++i) {
+                array[i] = Enableds[settings.StartIndex + i];
+            }
+
+            BlobAssets[index] = builder.CreateBlobAssetReference<SequentialEnabledsBlobAsset>(Allocator.Persistent);
+            builder.Dispose();
         }
     }
 }

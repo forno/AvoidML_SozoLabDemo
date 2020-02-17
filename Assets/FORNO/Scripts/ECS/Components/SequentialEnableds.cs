@@ -6,7 +6,7 @@ namespace Forno.Ecs
 {
     public struct SequentialEnabledsBlobAsset
     {
-        public BlobArray<bool> Positions;
+        public BlobArray<bool> Enableds;
     }
 
     [Serializable]
