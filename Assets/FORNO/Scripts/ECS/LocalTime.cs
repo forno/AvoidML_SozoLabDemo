@@ -12,15 +12,18 @@ namespace Forno.Ecs
     [UpdateAfter(typeof(UpdateWorldTimeSystem))]
     public class LocalTimeSystem : SystemBase
     {
+        public float timeFactor = 1;
+
         protected override void OnUpdate()
         {
             var deltaTime = Time.DeltaTime;
+            var factor = timeFactor;
             Entities
                 .WithBurst()
                 .WithEntityQueryOptions(EntityQueryOptions.IncludeDisabled)
                 .ForEach((ref LocalTime time) =>
                 {
-                    time.Value += deltaTime;
+                    time.Value += deltaTime * factor;
                 }).ScheduleParallel();
         }
     }

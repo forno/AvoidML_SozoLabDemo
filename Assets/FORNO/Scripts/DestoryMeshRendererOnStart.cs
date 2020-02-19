@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestoryMeshRendererOnStart : MonoBehaviour
+namespace Forno
 {
-    void Start()
+    public class DestoryMeshRendererOnStart : MonoBehaviour
     {
-        Destroy(GetComponent<MeshRenderer>());
+        void Start()
+        {
+            Destroy(GetComponent<MeshRenderer>());
+        }
     }
 }

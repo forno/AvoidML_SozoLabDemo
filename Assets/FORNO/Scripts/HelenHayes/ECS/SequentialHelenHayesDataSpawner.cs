@@ -86,8 +86,7 @@ namespace Forno.HelenHayes
                     var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(spawner.Prefab, settings);
                     DstEntityManager.AddComponent<SequenceIndex>(prefab);
                     DstEntityManager.AddComponentData(prefab, new SequenceFrequency { Value = spawner.FrequencyOfSequence });
-                    using (var instances = new NativeArray<Entity>(Constants.positionCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory)) {
-                        DstEntityManager.Instantiate(prefab, instances);
+                    using (var instances = DstEntityManager.Instantiate(prefab, Constants.positionCount, Allocator.Temp)) {
                         for (var i = 0; i < instances.Length; ++i) {
                             positionContext.GetBlobAsset(processBlobAssets[index], out var positionBlob);
                             DstEntityManager.AddComponentData(instances[i], new SequentialPositions { BlobData = positionBlob });
