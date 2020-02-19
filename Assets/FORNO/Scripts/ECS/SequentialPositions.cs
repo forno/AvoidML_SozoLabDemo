@@ -26,7 +26,6 @@ namespace Forno.Ecs
         protected override void OnUpdate()
         {
             var deltaTime = UnityEngine.Time.fixedDeltaTime;
-            UnityEngine.Debug.Log(deltaTime * 100);
             if (deltaTime != 0) {
                 Entities
                     .WithBurst()
