@@ -2503,8 +2503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f744529ac73b934784e1583618c60b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 3.14
-  amplify: 0
+  frequency: 1
+  amplify: 0.5
 --- !u!4 &2009532545
 Transform:
   m_ObjectHideFlags: 0

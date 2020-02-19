@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace AvoidML
 {
-    public class SignMoveSystemManager : MonoBehaviour
+    public class SinMoveSystemManager : MonoBehaviour
     {
         public float frequency;
         public float amplify;
-        private SignMoveSystem system;
+        private SinMoveSystem system;
 
         void Start()
         {
-            system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SignMoveSystem>();
+            system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SinMoveSystem>();
         }
 
         // Update is called once per frame
