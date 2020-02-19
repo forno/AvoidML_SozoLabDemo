@@ -9,7 +9,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using Hash128 = Unity.Entities.Hash128;
 
-namespace AvoidML.Nursecare
+namespace Forno.HelenHayes
 {
     [DisallowMultipleComponent]
     [RequiresEntityConversion]
@@ -32,7 +32,7 @@ namespace AvoidML.Nursecare
     {
         protected override void OnUpdate()
         {
-            var processBlobAssets = new NativeList<Hash128>(Forno.HelenHayes.Constants.positionCount, Allocator.Temp);
+            var processBlobAssets = new NativeList<Hash128>(Constants.positionCount, Allocator.Temp);
             var blobFactoryPositions = new NativeList<float3>(Allocator.TempJob);
             var blobLength = 0;
             int currentIndex = 0;
@@ -43,7 +43,7 @@ namespace AvoidML.Nursecare
                     var filePathHash = (uint)spawner.FilePath.GetHashCode();
                     var isFirst = true;
                     var dataLength = -1;
-                    for (var i = 0; i < Forno.HelenHayes.Constants.positionCount; ++i) {
+                    for (var i = 0; i < Constants.positionCount; ++i) {
                         var hash = new Hash128(filePathHash, (uint)i, 0, 0);
                         processBlobAssets.Add(hash);
                         positionContext.AssociateBlobAssetWithUnityObject(hash, spawner.gameObject);
@@ -53,7 +53,7 @@ namespace AvoidML.Nursecare
                                 currentIndex = blobLength;
                                 var readToEnd = File.ReadAllLines(Path.Combine(Application.streamingAssetsPath, spawner.FilePath));
                                 dataLength = readToEnd.Length - (spawner.HasHeader ? 1 : 0);
-                                blobLength += Forno.HelenHayes.Constants.positionCount * dataLength;
+                                blobLength += Constants.positionCount * dataLength;
                                 blobFactoryPositions.Resize(blobLength, NativeArrayOptions.UninitializedMemory);
                                 Fill(blobFactoryPositions, readToEnd, spawner.HasHeader, currentIndex);
                             }
@@ -86,7 +86,7 @@ namespace AvoidML.Nursecare
                     var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(spawner.Prefab, settings);
                     DstEntityManager.AddComponent<SequenceIndex>(prefab);
                     DstEntityManager.AddComponentData(prefab, new SequenceFrequency { Value = spawner.FrequencyOfSequence });
-                    using (var instances = new NativeArray<Entity>(Forno.HelenHayes.Constants.positionCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory)) {
+                    using (var instances = new NativeArray<Entity>(Constants.positionCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory)) {
                         DstEntityManager.Instantiate(prefab, instances);
                         for (var i = 0; i < instances.Length; ++i) {
                             positionContext.GetBlobAsset(processBlobAssets[index], out var positionBlob);
@@ -143,37 +143,6 @@ namespace AvoidML.Nursecare
             }
 
             BlobAssets[index] = builder.CreateBlobAssetReference<SequentialPositionsBlobAsset>(Allocator.Persistent);
-            builder.Dispose();
-        }
-    }
-
-    [BurstCompile]
-    public struct ComputeSequentialEnabledAssetJob : IJobParallelFor
-    {
-        [ReadOnly] public NativeArray<SequenceSettings> Settings;
-        [ReadOnly] public NativeArray<bool> Enableds;
-        public NativeArray<BlobAssetReference<SequentialEnabledsBlobAsset>> BlobAssets;
-
-        public ComputeSequentialEnabledAssetJob(NativeArray<SequenceSettings> settings, NativeArray<bool> enableds)
-        {
-            Settings = settings;
-            Enableds = enableds;
-            BlobAssets = new NativeArray<BlobAssetReference<SequentialEnabledsBlobAsset>>(settings.Length, Allocator.TempJob);
-        }
-
-        public void Execute(int index)
-        {
-            // Cannot use "using" because try-fainally are disabled on Burst
-            var builder = new BlobBuilder(Allocator.Temp);
-            var settings = Settings[index];
-            ref var root = ref builder.ConstructRoot<SequentialEnabledsBlobAsset>();
-            var array = builder.Allocate(ref root.Enableds, settings.Count);
-
-            for (var i = 0; i < array.Length; ++i) {
-                array[i] = Enableds[settings.StartIndex + i];
-            }
-
-            BlobAssets[index] = builder.CreateBlobAssetReference<SequentialEnabledsBlobAsset>(Allocator.Persistent);
             builder.Dispose();
         }
     }
