@@ -3,7 +3,6 @@
     public static class Constants
     {
         public static readonly float timeFrequency = 100f; // data per seconds
-        public static readonly int positionCount = 29;
         public static readonly bool hasHeader = true;
         public static readonly float convert2meter = 1f / 1000f;
 

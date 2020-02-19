@@ -1,4 +1,4 @@
-﻿using Forno.CSV;
+﻿using Forno.Csv;
 using System;
 using Unity.Mathematics;
 
@@ -32,7 +32,7 @@ namespace AvoidML.Nursecare
                 else return null;
             });
 
-            float3?[] values = new float3?[Constants.positionCount];
+            float3?[] values = new float3?[Forno.HelenHayes.Constants.positionCount];
             for(uint i = 0; i < values.Length; ++i) {
                 // Convert coordinate system
                 var v0 = fields[i * 3];

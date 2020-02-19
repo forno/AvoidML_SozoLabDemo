@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Forno.CSV
+namespace Forno.Csv
 {
     public class TextField : IEnumerator<string[]>
     {

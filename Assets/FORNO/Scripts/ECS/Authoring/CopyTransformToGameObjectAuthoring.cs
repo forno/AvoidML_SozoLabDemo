@@ -2,12 +2,15 @@
 using Unity.Transforms;
 using UnityEngine;
 
-[DisallowMultipleComponent]
-[RequiresEntityConversion]
-public class CopyTransformToGameObjectAuthoring : MonoBehaviour, IConvertGameObjectToEntity
+namespace Forno.Ecs
 {
-    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+    [DisallowMultipleComponent]
+    [RequiresEntityConversion]
+    public class CopyTransformToGameObjectAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     {
-        dstManager.AddComponent<CopyTransformToGameObject>(entity);
+        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
+        {
+            dstManager.AddComponent<CopyTransformToGameObject>(entity);
+        }
     }
 }
