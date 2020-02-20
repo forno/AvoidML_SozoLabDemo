@@ -5,6 +5,8 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using System;
 using UnityEngine;
+using static Unity.Mathematics.math;
+using Unity.Jobs;
 
 namespace AvoidML
 {
@@ -20,7 +22,6 @@ namespace AvoidML
     [RequiresEntityConversion]
     public class AvoidByDistanceAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     {
-        // In local space
         public GameObject WorkingPoint;
         public float DetectRange = 0.5f;
 
@@ -48,7 +49,7 @@ namespace AvoidML
             var collisionWorld = system.PhysicsWorld.CollisionWorld;
 
             Entities
-                .ForEach((ref Rotation rotation, in AvoidByDistance avoider) =>
+                .ForEach((ref PhysicsVelocity velocity, in AvoidByDistance avoider, in Rotation rotation) =>
                 {
                     var pointDistanceInput = new PointDistanceInput
                     {
@@ -63,14 +64,17 @@ namespace AvoidML
                     };
                     if (collisionWorld.CalculateDistance(pointDistanceInput, out var closestHit )) {
                         var localPos = closestHit.Position - avoider.WorkingPoint;
-                        var localDistance = math.length(localPos);
+                        var localDistance = length(localPos);
                         if (localDistance < avoider.DetectRange) {
-                            rotation.Value = quaternion.RotateY(math.radians(90));
+                            //velocity.Angular = rotate(inverse(rotation.Value), float3(0, radians(90), 0));
+                            velocity.Angular = float3(0, radians(90), 0);
                         } else {
-                            rotation.Value = quaternion.RotateY(math.radians(0));
+                            //velocity.Angular = rotate(inverse(rotation.Value), float3(0));
+                            velocity.Angular = float3(0);
                         }
                     }
-                }).Schedule(Dependency).Complete();
+                }).ScheduleParallel();
+            Dependency.Complete();
         }
     }
 }
