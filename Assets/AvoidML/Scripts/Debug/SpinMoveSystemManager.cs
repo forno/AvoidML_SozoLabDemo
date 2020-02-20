@@ -1,17 +1,17 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace AvoidML
+namespace AvoidML.Debug
 {
-    public class SinMoveSystemManager : MonoBehaviour
+    public class SpinMoveSystemManager : MonoBehaviour
     {
         public float frequency;
         public float amplify;
-        private SinMoveSystem system;
+        private SpinMoveSystem system;
 
         void Start()
         {
-            system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SinMoveSystem>();
+            system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SpinMoveSystem>();
         }
 
         // Update is called once per frame

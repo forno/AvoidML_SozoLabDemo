@@ -3,7 +3,7 @@ using Unity.Jobs;
 using Unity.Physics;
 using static Unity.Mathematics.math;
 
-namespace AvoidML
+namespace AvoidML.Debug
 {
     [GenerateAuthoringComponent]
     public struct SinMove : IComponentData { }
