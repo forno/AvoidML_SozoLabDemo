@@ -1545,7 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
-  FilePath: Nursecare/mocap/train/segment0.csv
+  FilePath: Cooking/mocap/train/subject1_file_11.csv
   HasHeader: 1
   FrequencyOfSequence: 100
 --- !u!4 &1295997362
