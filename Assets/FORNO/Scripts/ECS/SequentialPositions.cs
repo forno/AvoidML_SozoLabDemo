@@ -18,6 +18,7 @@ namespace Forno.Ecs
     public struct SequentialPositions : IComponentData
     {
         public BlobAssetReference<SequentialPositionsBlobAsset> BlobData;
+        public Entity Parent;
     }
 
     [UpdateBefore(typeof(BuildPhysicsWorld))]
@@ -25,10 +26,13 @@ namespace Forno.Ecs
     {
         protected override void OnUpdate()
         {
+            var localToWorldFromEntity = GetComponentDataFromEntity<LocalToWorld>(true);
             var deltaTime = UnityEngine.Time.fixedDeltaTime;
             if (deltaTime != 0) {
                 Entities
                     .WithBurst()
+                    .WithReadOnly(localToWorldFromEntity)
+                    .WithNativeDisableContainerSafetyRestriction(localToWorldFromEntity)
                     .ForEach((ref PhysicsVelocity velocity, ref Translation translation, in SequentialPositions positionsRef, in SequenceIndex index, in LocalTime time, in SequenceFrequency frequency) =>
                     {
                         ref var positions = ref positionsRef.BlobData.Value.Positions;
@@ -39,7 +43,9 @@ namespace Forno.Ecs
                             lastIndex = validIndex;
                         }
                         var divideTime = frac(time.Value * frequency.Value);
-                        translation.Value = lerp(positions[lastIndex], positions[validIndex], divideTime);
+                        var localPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[validIndex]);
+                        var localLastPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[lastIndex]);
+                        translation.Value = lerp(localLastPosition, localPosition, divideTime);
                     }).ScheduleParallel();
             } else {
                 Entities
@@ -54,7 +60,9 @@ namespace Forno.Ecs
                             lastIndex = validIndex;
                         }
                         var divideTime = frac(time.Value * frequency.Value);
-                        translation.Value = lerp(positions[lastIndex], positions[validIndex], divideTime);
+                        var localPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[validIndex]);
+                        var localLastPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[lastIndex]);
+                        translation.Value = lerp(localLastPosition, localPosition, divideTime);
                         velocity.Linear = new float3();
                     }).ScheduleParallel();
             }

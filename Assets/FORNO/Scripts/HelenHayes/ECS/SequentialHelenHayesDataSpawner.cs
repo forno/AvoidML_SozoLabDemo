@@ -8,6 +8,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 using Hash128 = Unity.Entities.Hash128;
+using Unity.Transforms;
 
 namespace Forno.HelenHayes
 {
@@ -89,7 +90,10 @@ namespace Forno.HelenHayes
                     using (var instances = DstEntityManager.Instantiate(prefab, Constants.positionCount, Allocator.Temp)) {
                         for (var i = 0; i < instances.Length; ++i) {
                             positionContext.GetBlobAsset(processBlobAssets[index], out var positionBlob);
-                            DstEntityManager.AddComponentData(instances[i], new SequentialPositions { BlobData = positionBlob });
+                            DstEntityManager.AddComponentData(instances[i], new SequentialPositions {
+                                BlobData = positionBlob,
+                                Parent = GetPrimaryEntity(spawner)
+                            });
                             ++index;
                         }
                     }

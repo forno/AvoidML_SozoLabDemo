@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -461.5, y: -304}
+  m_AnchoredPosition: {x: -494.8, y: -267.1}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19089503
@@ -1175,9 +1175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb54ea4f67dc17342bcd49954c53502d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DrawColliders: 0
+  DrawColliders: 1
   DrawColliderEdges: 0
-  DrawColliderAabbs: 0
+  DrawColliderAabbs: 1
   DrawBroadphase: 0
   DrawMassProperties: 0
   DrawContacts: 1
@@ -1556,7 +1556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295997360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1766,10 +1766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeebb3e05d53200459d72d2f338a3bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CenterPoint:
-    x: 0
-    y: 0
-    z: 0
+  WorkingPoint: {fileID: 1923534022}
+  DetectRange: 0.2
 --- !u!1 &1749988467
 GameObject:
   m_ObjectHideFlags: 0
