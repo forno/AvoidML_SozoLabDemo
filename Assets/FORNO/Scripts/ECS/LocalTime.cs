@@ -19,7 +19,6 @@ namespace Forno.Ecs
             var deltaTime = Time.DeltaTime;
             var factor = timeFactor;
             Entities
-                .WithBurst()
                 .WithEntityQueryOptions(EntityQueryOptions.IncludeDisabled)
                 .ForEach((ref LocalTime time) =>
                 {

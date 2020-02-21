@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -494.8, y: -267.1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19089503
@@ -502,7 +502,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117954342}
-  - component: {fileID: 117954344}
   - component: {fileID: 117954343}
   m_Layer: 0
   m_Name: Motoman U axis
@@ -539,22 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f598061f24136c41aea72959eb7be1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &117954344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117954341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af5614ece4036c24bbe60c11ec7fbcf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value:
-    x: -1
-    y: 0
-    z: 0
 --- !u!1 &164275304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,9 +1203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb54ea4f67dc17342bcd49954c53502d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DrawColliders: 1
+  DrawColliders: 0
   DrawColliderEdges: 0
-  DrawColliderAabbs: 1
+  DrawColliderAabbs: 0
   DrawBroadphase: 0
   DrawMassProperties: 0
   DrawContacts: 1
@@ -1679,13 +1662,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165088381}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -2}
+  m_LocalRotation: {x: 0.13102157, y: 0.27361983, z: -0.037652608, w: 0.95212805}
+  m_LocalPosition: {x: -1.396, y: 1.715, z: -1.043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.670001, y: 32.067, z: 0}
 --- !u!1 &1194792249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295997360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2355,7 +2338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
-  amplify: 0.02
+  amplify: -0.02
 --- !u!4 &2011856798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2785456518587333599, guid: 5b55ca3a6e2c4df478786686ee663a51,
@@ -2371,6 +2354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027037133}
+  - component: {fileID: 2027037135}
   m_Layer: 0
   m_Name: Motoman R axis
   m_TagString: Untagged
@@ -2394,6 +2378,18 @@ Transform:
   m_Father: {fileID: 117954342}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027037135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027037132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f598061f24136c41aea72959eb7be1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081753165
 GameObject:
   m_ObjectHideFlags: 0

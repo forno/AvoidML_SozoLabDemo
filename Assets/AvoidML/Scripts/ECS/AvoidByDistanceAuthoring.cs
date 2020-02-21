@@ -49,7 +49,7 @@ namespace AvoidML
             var collisionWorld = system.PhysicsWorld.CollisionWorld;
 
             Entities
-                .ForEach((ref PhysicsVelocity velocity, in AvoidByDistance avoider, in Rotation rotation) =>
+                .ForEach((ref PhysicsVelocity velocity, ref Rotation rotation, in AvoidByDistance avoider) =>
                 {
                     var pointDistanceInput = new PointDistanceInput
                     {
@@ -66,11 +66,9 @@ namespace AvoidML
                         var localPos = closestHit.Position - avoider.WorkingPoint;
                         var localDistance = length(localPos);
                         if (localDistance < avoider.DetectRange) {
-                            //velocity.Angular = rotate(inverse(rotation.Value), float3(0, radians(90), 0));
-                            velocity.Angular = float3(0, radians(90), 0);
+                            rotation.Value = UnityEngine.Quaternion.Lerp(rotation.Value, Unity.Mathematics.quaternion.RotateY(radians(90)), 0.1f);
                         } else {
-                            //velocity.Angular = rotate(inverse(rotation.Value), float3(0));
-                            velocity.Angular = float3(0);
+                            rotation.Value = UnityEngine.Quaternion.Lerp(rotation.Value, Unity.Mathematics.quaternion.RotateY(radians(0)), 0.1f);
                         }
                     }
                 }).ScheduleParallel();
