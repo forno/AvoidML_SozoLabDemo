@@ -10,29 +10,33 @@ namespace Forno.HelenHayes
     public class HelenHayesLineRendererSystem : SystemBase
     {
         public LineRenderer Prefab;
-        private List<LineRenderer> LineRenderers;
+        private GameObject parent;
+        private List<LineRenderer> lineRenderers;
         private EntityQuery query;
         private static readonly int lineRendererCountPerModel = 5;
 
         protected override void OnCreate()
         {
-            LineRenderers = new List<LineRenderer>();
+            parent = new GameObject("HelenHayesLineRendererSystem Managed Object");
+            lineRenderers = new List<LineRenderer>();
         }
 
         protected override void OnUpdate()
         {
             var lineRendererCount = query.CalculateEntityCount() * lineRendererCountPerModel;
-            if (LineRenderers.Count > lineRendererCount) {
-                for (var i = lineRendererCount; i < LineRenderers.Count; ++i) {
-                    Object.Destroy(LineRenderers[i].gameObject);
+            if (lineRenderers.Count > lineRendererCount) {
+                for (var i = lineRendererCount; i < lineRenderers.Count; ++i) {
+                    Object.Destroy(lineRenderers[i].gameObject);
                 }
-                LineRenderers.RemoveRange(lineRendererCount, LineRenderers.Count - lineRendererCount);
-            } else if (LineRenderers.Count < lineRendererCount) {
-                for (var i = LineRenderers.Count; i < lineRendererCount; ++i) {
-                    LineRenderers.Add(Object.Instantiate(Prefab));
+                lineRenderers.RemoveRange(lineRendererCount, lineRenderers.Count - lineRendererCount);
+            } else if (lineRenderers.Count < lineRendererCount) {
+                for (var i = lineRenderers.Count; i < lineRendererCount; ++i) {
+                    var lineRenderer = Object.Instantiate(Prefab);
+                    lineRenderer.transform.parent = parent.transform;
+                    lineRenderers.Add(lineRenderer);
                 }
             }
-            Assert.AreEqual(LineRenderers.Count, lineRendererCount);
+            Assert.AreEqual(lineRenderers.Count, lineRendererCount);
 
             var curIndex = 0;
             Entities
@@ -41,20 +45,20 @@ namespace Forno.HelenHayes
                 .ForEach((in HelenHayesPositions positions) =>
                 {
                     Vector3[] body = {positions.FrontHead, positions.TopHead, positions.RearHead, positions.VSacral};
-                    LineRenderers[curIndex].positionCount = body.Length;
-                    LineRenderers[curIndex].SetPositions(body);
+                    lineRenderers[curIndex].positionCount = body.Length;
+                    lineRenderers[curIndex].SetPositions(body);
                     Vector3[] leftArm = {positions.LeftWrist, positions.LeftElbow, positions.LeftShoulder};
-                    LineRenderers[++curIndex].positionCount = leftArm.Length;
-                    LineRenderers[curIndex].SetPositions(leftArm);
+                    lineRenderers[++curIndex].positionCount = leftArm.Length;
+                    lineRenderers[curIndex].SetPositions(leftArm);
                     Vector3[] rightArm = {positions.RightWrist, positions.RightElbow, positions.RightShoulder};
-                    LineRenderers[++curIndex].positionCount = rightArm.Length;
-                    LineRenderers[curIndex].SetPositions(rightArm);
+                    lineRenderers[++curIndex].positionCount = rightArm.Length;
+                    lineRenderers[curIndex].SetPositions(rightArm);
                     Vector3[] leftLeg = {positions.LeftToe, positions.LeftHeel, positions.LeftAnkle, positions.LeftShank, positions.LeftKnee, positions.LeftTight, positions.LeftAsis};
-                    LineRenderers[++curIndex].positionCount = leftLeg.Length;
-                    LineRenderers[curIndex].SetPositions(leftLeg);
+                    lineRenderers[++curIndex].positionCount = leftLeg.Length;
+                    lineRenderers[curIndex].SetPositions(leftLeg);
                     Vector3[] rightLeg = {positions.RightToe, positions.RightHeel, positions.RightAnkle, positions.RightShank, positions.RightKnee, positions.RightTight, positions.RightAsis};
-                    LineRenderers[++curIndex].positionCount = rightLeg.Length;
-                    LineRenderers[curIndex].SetPositions(rightLeg);
+                    lineRenderers[++curIndex].positionCount = rightLeg.Length;
+                    lineRenderers[curIndex].SetPositions(rightLeg);
                     ++curIndex;
                 }).Run();
         }
