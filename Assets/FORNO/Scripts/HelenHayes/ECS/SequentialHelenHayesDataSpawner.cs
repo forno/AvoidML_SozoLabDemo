@@ -92,6 +92,7 @@ namespace Forno.HelenHayes
                 {
                     var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(spawner.Prefab, settings);
                     DstEntityManager.AddComponent<SequenceIndex>(prefab);
+                    DstEntityManager.AddComponent<SequenceTimeFrac>(prefab);
                     DstEntityManager.AddComponentData(prefab, new SequenceFrequency { Value = spawner.FrequencyOfSequence });
                     using (var instances = DstEntityManager.Instantiate(prefab, Constants.positionCount, Allocator.Temp)) {
                         for (var i = 0; i < instances.Length; ++i) {

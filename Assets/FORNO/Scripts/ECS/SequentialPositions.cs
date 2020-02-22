@@ -30,40 +30,37 @@ namespace Forno.Ecs
             var deltaTime = UnityEngine.Time.fixedDeltaTime;
             if (deltaTime != 0) {
                 Entities
-                    .WithBurst()
                     .WithReadOnly(localToWorldFromEntity)
-                    .WithNativeDisableContainerSafetyRestriction(localToWorldFromEntity)
-                    .ForEach((ref PhysicsVelocity velocity, ref Translation translation, in SequentialPositions positionsRef, in SequenceIndex index, in LocalTime time, in SequenceFrequency frequency) =>
+                    .ForEach((ref PhysicsVelocity velocity, ref Translation translation, in SequentialPositions positionsRef, in SequenceIndex index, in SequenceTimeFrac frac, in SequenceFrequency frequency) =>
                     {
                         ref var positions = ref positionsRef.BlobData.Value.Positions;
-                        var length = positions.Length;
-                        var validIndex = clamp(index.Value, 0, length - 1);
-                        var lastIndex = clamp(index.Value - 1, 0, length - 1);
+                        var validIndex = clamp(index.Value, 0, positions.Length - 1);
+                        var lastIndex = clamp(index.Value - 1, 0, positions.Length - 1);
                         if (any(isnan(positions[lastIndex]))) {
                             lastIndex = validIndex;
                         }
-                        var divideTime = frac(time.Value * frequency.Value);
                         var localPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[validIndex]);
                         var localLastPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[lastIndex]);
-                        translation.Value = lerp(localLastPosition, localPosition, divideTime);
+                        translation.Value = lerp(localLastPosition, localPosition, frac.Value);
+                        // TODO: implement correct velocity
+                        //velocity.Linear = (localPosition - localLastPosition) / deltaTime * frequency.Value / deltaTime;
                     }).ScheduleParallel();
             } else {
                 Entities
-                    .WithBurst()
-                    .ForEach((ref PhysicsVelocity velocity, ref Translation translation, in SequentialPositions positionsRef, in SequenceIndex index, in LocalTime time, in SequenceFrequency frequency) =>
+                    .WithReadOnly(localToWorldFromEntity)
+                    .WithAll<SequenceFrequency>()
+                    .ForEach((ref PhysicsVelocity velocity, ref Translation translation, in SequentialPositions positionsRef, in SequenceIndex index, in SequenceTimeFrac frac) =>
                     {
                         ref var positions = ref positionsRef.BlobData.Value.Positions;
-                        var length = positions.Length;
-                        var validIndex = clamp(index.Value, 0, length - 1);
-                        var lastIndex = clamp(index.Value - 1, 0, length - 1);
+                        var validIndex = clamp(index.Value, 0, positions.Length - 1);
+                        var lastIndex = clamp(index.Value - 1, 0, positions.Length - 1);
                         if (any(isnan(positions[lastIndex]))) {
                             lastIndex = validIndex;
                         }
-                        var divideTime = frac(time.Value * frequency.Value);
                         var localPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[validIndex]);
                         var localLastPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[lastIndex]);
-                        translation.Value = lerp(localLastPosition, localPosition, divideTime);
-                        velocity.Linear = new float3();
+                        translation.Value = lerp(localLastPosition, localPosition, frac.Value);
+                        velocity.Linear = Unity.Mathematics.float3.zero;
                     }).ScheduleParallel();
             }
         }
@@ -83,26 +80,24 @@ namespace Forno.Ecs
         {
             var commandBuffer1 = m_CommandBufferSystem.CreateCommandBuffer().ToConcurrent();
             var job1 = Entities
-                .WithBurst()
-                .ForEach((Entity e, int entityInQueryIndex, in SequentialPositions positionsRef, in SequenceIndex index) =>
+                .ForEach((Entity entity, int entityInQueryIndex, in SequentialPositions positionsRef, in SequenceIndex index) =>
                 {
                     ref var positions = ref positionsRef.BlobData.Value.Positions;
                     var validIndex = clamp(index.Value, 0, positions.Length - 1);
                     if (any(isnan(positions[validIndex]))) {
-                        commandBuffer1.AddComponent<Disabled>(entityInQueryIndex, e);
+                        commandBuffer1.AddComponent<Disabled>(entityInQueryIndex, entity);
                     }
                 }).ScheduleParallel(Dependency);
 
             var commandBuffer2 = m_CommandBufferSystem.CreateCommandBuffer().ToConcurrent();
             var job2 = Entities
-                .WithBurst()
                 .WithAll<Disabled>()
-                .ForEach((Entity e, int entityInQueryIndex, in SequentialPositions positionsRef, in SequenceIndex index) =>
+                .ForEach((Entity entity, int entityInQueryIndex, in SequentialPositions positionsRef, in SequenceIndex index) =>
                 {
                     ref var positions = ref positionsRef.BlobData.Value.Positions;
                     var validIndex = clamp(index.Value, 0, positions.Length - 1);
                     if (!any(isnan(positions[validIndex]))) {
-                        commandBuffer2.RemoveComponent<Disabled>(entityInQueryIndex, e);
+                        commandBuffer2.RemoveComponent<Disabled>(entityInQueryIndex, entity);
                     }
                 }).ScheduleParallel(Dependency);
 

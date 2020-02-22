@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Forno.HelenHayes
 {
+    // This need prefab. You shuold attach it from MonoBehaviour
+    [DisableAutoCreation]
     public class HelenHayesLineRendererSystem : SystemBase
     {
         public LineRenderer Prefab;
@@ -65,7 +66,14 @@ namespace Forno.HelenHayes
 
         public void Start()
         {
-            World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<HelenHayesLineRendererSystem>().Prefab = Prefab;
+            var world = World.DefaultGameObjectInjectionWorld;
+            var helenHayesLineRendererSystem = world.GetOrCreateSystem<HelenHayesLineRendererSystem>();
+            helenHayesLineRendererSystem.Prefab = Prefab;
+            var simulationSystemGroup = world.GetOrCreateSystem<SimulationSystemGroup>();
+            simulationSystemGroup.AddSystemToUpdateList(helenHayesLineRendererSystem);
+            simulationSystemGroup.SortSystemUpdateList();
+            // Destroy itself
+            Destroy(this);
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Forno.Ecs;
 using Unity.Entities;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using static Unity.Mathematics.math;
 
 namespace Forno
 {
@@ -14,12 +15,13 @@ namespace Forno
         {
             if (slider == null)
                 slider = GetComponent<Slider>();
-            localTimeSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<LocalTimeSystem>();
+            localTimeSystem = World.DefaultGameObjectInjectionWorld.GetExistingSystem<LocalTimeSystem>();
         }
 
         public void UpdateTimeFactor()
         {
-            localTimeSystem.timeFactor = slider.value;
+            localTimeSystem.IsBackToTheFuture = slider.value < 0;
+            Time.timeScale = abs(slider.value);
         }
     }
 }
