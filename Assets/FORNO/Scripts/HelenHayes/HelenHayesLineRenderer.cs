@@ -39,19 +39,19 @@ namespace Forno.HelenHayes
                 .WithoutBurst()
                 .ForEach((in HelenHayesPositions positions) =>
                 {
-                    Vector3[] body = {positions.FrontHead, positions.TopHead, positions.RearHead, positions.RightOffset, positions.VSacral};
+                    Vector3[] body = {positions.FrontHead, positions.TopHead, positions.RearHead, positions.VSacral};
                     LineRenderers[curIndex].positionCount = body.Length;
                     LineRenderers[curIndex].SetPositions(body);
-                    Vector3[] leftArm = {positions.LeftWrist, positions.LeftElbow, positions.LeftShoulder, positions.RightOffset};
+                    Vector3[] leftArm = {positions.LeftWrist, positions.LeftElbow, positions.LeftShoulder};
                     LineRenderers[++curIndex].positionCount = leftArm.Length;
                     LineRenderers[curIndex].SetPositions(leftArm);
-                    Vector3[] rightArm = {positions.RightWrist, positions.RightElbow, positions.RightShoulder, positions.RightOffset};
+                    Vector3[] rightArm = {positions.RightWrist, positions.RightElbow, positions.RightShoulder};
                     LineRenderers[++curIndex].positionCount = rightArm.Length;
                     LineRenderers[curIndex].SetPositions(rightArm);
-                    Vector3[] leftLeg = {positions.LeftToe, positions.LeftHeel, positions.LeftAnkle, positions.LeftShank, positions.LeftKnee, positions.LeftTight, positions.LeftAsis, positions.VSacral};
+                    Vector3[] leftLeg = {positions.LeftToe, positions.LeftHeel, positions.LeftAnkle, positions.LeftShank, positions.LeftKnee, positions.LeftTight, positions.LeftAsis};
                     LineRenderers[++curIndex].positionCount = leftLeg.Length;
                     LineRenderers[curIndex].SetPositions(leftLeg);
-                    Vector3[] rightLeg = {positions.RightToe, positions.RightHeel, positions.RightAnkle, positions.RightShank, positions.RightKnee, positions.RightTight, positions.RightAsis, positions.VSacral};
+                    Vector3[] rightLeg = {positions.RightToe, positions.RightHeel, positions.RightAnkle, positions.RightShank, positions.RightKnee, positions.RightTight, positions.RightAsis};
                     LineRenderers[++curIndex].positionCount = rightLeg.Length;
                     LineRenderers[curIndex].SetPositions(rightLeg);
                     ++curIndex;
