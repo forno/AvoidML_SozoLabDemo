@@ -16,14 +16,14 @@ namespace AvoidML.Cooking
             var entity = DstEntityManager.CreateEntity(typeof(HelenHayesEntitiesHolder), typeof(HelenHayesPositions));
             DstEntityManager.SetComponentData(entity, new HelenHayesEntitiesHolder
             {
-                FrontHead     = entities[0],
-                TopHead       = entities[1],
+                TopHead       = entities[0],
+                FrontHead     = entities[1],
                 RearHead      = entities[2],
                 RightShoulder = entities[3],
-                LeftShoulder  = entities[4],
-                RightOffset   = entities[5],
+                RightOffset   = entities[4],
+                RightElbow    = entities[5],
                 LeftElbow     = entities[6],
-                RightElbow    = entities[7],
+                LeftShoulder  = entities[7],
                 LeftWrist     = entities[8],
                 RightWrist    = entities[9],
                 RightAsis     = entities[10],

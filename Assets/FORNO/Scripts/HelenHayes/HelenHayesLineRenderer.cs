@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -40,11 +41,14 @@ namespace Forno.HelenHayes
                 Assert.AreEqual(LineRenderers.Count, lineRendererCount);
 
                 for (var i = 0; i < components.Length; ++i) {
+                    var component = components[i];
                     var curIndex = i * lineRendererCountPerModel;
-                    LineRenderers[curIndex].positionCount = 3;
-                    LineRenderers[curIndex].SetPosition(0, components[i].FrontHead);
-                    LineRenderers[curIndex].SetPosition(1, components[i].TopHead);
-                    LineRenderers[curIndex].SetPosition(2, components[i].RearHead);
+                    Vector3[] body = {component.FrontHead, component.TopHead, component.RearHead, component.RightOffset, component.VSacral};
+                    LineRenderers[curIndex].positionCount = body.Length;
+                    LineRenderers[curIndex].SetPositions(body);
+                    Vector3[] leftLeg = {component.LeftAsis, component.LeftTight, component.LeftKnee, component.LeftShank, component.LeftAnkle, component.LeftToe};
+                    LineRenderers[curIndex + 1].positionCount = leftLeg.Length;
+                    LineRenderers[curIndex + 1].SetPositions(leftLeg);
                 }
             }
         }
