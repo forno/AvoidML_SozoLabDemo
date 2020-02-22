@@ -8,7 +8,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
 using Hash128 = Unity.Entities.Hash128;
-using Unity.Transforms;
+using UnityEngine.Assertions;
 
 namespace Forno.HelenHayes
 {
@@ -22,6 +22,7 @@ namespace Forno.HelenHayes
         public float FrequencyOfSequence = 100f;
     }
 
+    [Serializable]
     public struct SequenceSettings
     {
         public Hash128 Hash;
@@ -114,6 +115,7 @@ namespace Forno.HelenHayes
             var headSkip = isIgnoreHead ? 1 : 0;
             var forLimit = src.Length - headSkip;
             var sliceSize = dstPosition.Length / forLimit;
+            Assert.AreEqual(sliceSize * forLimit, dstPosition.Length);
             for (var i = 0; i < forLimit; ++i) {
                 var data = Array.ConvertAll(src[i + headSkip].Split(','), (string s) => { if (float.TryParse(s, out var f)) return f; else return float.NaN; });
                 for (var j = 0; j < sliceSize; ++j) {
