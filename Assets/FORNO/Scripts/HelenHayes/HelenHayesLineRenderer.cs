@@ -6,60 +6,66 @@ using UnityEngine.Assertions;
 
 namespace Forno.HelenHayes
 {
-    public class HelenHayesLineRenderer : MonoBehaviour
+    public class HelenHayesLineRendererSystem : SystemBase
     {
         public LineRenderer Prefab;
         private List<LineRenderer> LineRenderers;
-        private EntityManager EntityManager;
-        private EntityQuery Query;
+        private EntityQuery query;
+        private static readonly int lineRendererCountPerModel = 5;
 
-        // Start is called before the first frame update
-        void Start()
+        protected override void OnCreate()
         {
-            EntityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             LineRenderers = new List<LineRenderer>();
-            Query = EntityManager.CreateEntityQuery(ComponentType.ReadOnly<HelenHayesPositions>());
         }
 
-        // Update is called once per frame
-        void Update()
+        protected override void OnUpdate()
         {
-            using (var components = Query.ToComponentDataArray<HelenHayesPositions>(Allocator.TempJob)) {
-                var lineRendererCount = components.Length * lineRendererCountPerModel;
-                if (LineRenderers.Count > lineRendererCount) {
-                    for (var i = lineRendererCount; i < LineRenderers.Count; ++i) {
-                        Destroy(LineRenderers[i].gameObject);
-                    }
-                    LineRenderers.RemoveRange(lineRendererCount, LineRenderers.Count - lineRendererCount);
-                } else if (LineRenderers.Count < lineRendererCount) {
-                    for (var i = LineRenderers.Count; i < lineRendererCount; ++i) {
-                        LineRenderers.Add(Instantiate(Prefab));
-                    }
+            var lineRendererCount = query.CalculateEntityCount() * lineRendererCountPerModel;
+            if (LineRenderers.Count > lineRendererCount) {
+                for (var i = lineRendererCount; i < LineRenderers.Count; ++i) {
+                    Object.Destroy(LineRenderers[i].gameObject);
                 }
-                Assert.AreEqual(LineRenderers.Count, lineRendererCount);
-
-                for (var i = 0; i < components.Length; ++i) {
-                    var component = components[i];
-                    var curIndex = i * lineRendererCountPerModel;
-                    Vector3[] body = {component.FrontHead, component.TopHead, component.RearHead, component.RightOffset, component.VSacral};
-                    LineRenderers[curIndex].positionCount = body.Length;
-                    LineRenderers[curIndex].SetPositions(body);
-                    Vector3[] leftArm = {component.LeftWrist, component.LeftElbow, component.LeftShoulder, component.RightOffset};
-                    LineRenderers[curIndex + 1].positionCount = leftArm.Length;
-                    LineRenderers[curIndex + 1].SetPositions(leftArm);
-                    Vector3[] rightArm = {component.RightWrist, component.RightElbow, component.RightShoulder, component.RightOffset};
-                    LineRenderers[curIndex + 2].positionCount = rightArm.Length;
-                    LineRenderers[curIndex + 2].SetPositions(rightArm);
-                    Vector3[] leftLeg = {component.LeftToe, component.LeftHeel, component.LeftAnkle, component.LeftShank, component.LeftKnee, component.LeftTight, component.LeftAsis, component.VSacral};
-                    LineRenderers[curIndex + 3].positionCount = leftLeg.Length;
-                    LineRenderers[curIndex + 3].SetPositions(leftLeg);
-                    Vector3[] rightLeg = {component.RightToe, component.RightHeel, component.RightAnkle, component.RightShank, component.RightKnee, component.RightTight, component.RightAsis, component.VSacral};
-                    LineRenderers[curIndex + 4].positionCount = rightLeg.Length;
-                    LineRenderers[curIndex + 4].SetPositions(rightLeg);
+                LineRenderers.RemoveRange(lineRendererCount, LineRenderers.Count - lineRendererCount);
+            } else if (LineRenderers.Count < lineRendererCount) {
+                for (var i = LineRenderers.Count; i < lineRendererCount; ++i) {
+                    LineRenderers.Add(Object.Instantiate(Prefab));
                 }
             }
-        }
+            Assert.AreEqual(LineRenderers.Count, lineRendererCount);
 
-        private static readonly int lineRendererCountPerModel = 5;
+            var curIndex = 0;
+            Entities
+                .WithStoreEntityQueryInField(ref query)
+                .WithoutBurst()
+                .ForEach((in HelenHayesPositions positions) =>
+                {
+                    Vector3[] body = {positions.FrontHead, positions.TopHead, positions.RearHead, positions.RightOffset, positions.VSacral};
+                    LineRenderers[curIndex].positionCount = body.Length;
+                    LineRenderers[curIndex].SetPositions(body);
+                    Vector3[] leftArm = {positions.LeftWrist, positions.LeftElbow, positions.LeftShoulder, positions.RightOffset};
+                    LineRenderers[++curIndex].positionCount = leftArm.Length;
+                    LineRenderers[curIndex].SetPositions(leftArm);
+                    Vector3[] rightArm = {positions.RightWrist, positions.RightElbow, positions.RightShoulder, positions.RightOffset};
+                    LineRenderers[++curIndex].positionCount = rightArm.Length;
+                    LineRenderers[curIndex].SetPositions(rightArm);
+                    Vector3[] leftLeg = {positions.LeftToe, positions.LeftHeel, positions.LeftAnkle, positions.LeftShank, positions.LeftKnee, positions.LeftTight, positions.LeftAsis, positions.VSacral};
+                    LineRenderers[++curIndex].positionCount = leftLeg.Length;
+                    LineRenderers[curIndex].SetPositions(leftLeg);
+                    Vector3[] rightLeg = {positions.RightToe, positions.RightHeel, positions.RightAnkle, positions.RightShank, positions.RightKnee, positions.RightTight, positions.RightAsis, positions.VSacral};
+                    LineRenderers[++curIndex].positionCount = rightLeg.Length;
+                    LineRenderers[curIndex].SetPositions(rightLeg);
+                    ++curIndex;
+                }).Run();
+        }
+    }
+
+    public class HelenHayesLineRenderer : MonoBehaviour
+    {
+        public LineRenderer Prefab;
+
+        public void Start()
+        {
+            World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<HelenHayesLineRendererSystem>().Prefab = Prefab;
+        }
     }
 }
