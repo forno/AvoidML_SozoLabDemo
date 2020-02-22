@@ -43,8 +43,8 @@ namespace AvoidML.Cooking
                 RightAnkleMed = entities[24],
                 RightToe      = entities[25],
                 LeftToe       = entities[26],
-                LeftToeMed    = entities[27],
-                RightToeMed   = entities[28],
+                LeftHeel      = entities[27],
+                RightHeel     = entities[28],
             });
         }
     }
