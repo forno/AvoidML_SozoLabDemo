@@ -508,6 +508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117954342}
   - component: {fileID: 117954343}
+  - component: {fileID: 117954344}
   m_Layer: 0
   m_Name: Motoman U axis
   m_TagString: Untagged
@@ -543,6 +544,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f598061f24136c41aea72959eb7be1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &117954344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117954341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5614ece4036c24bbe60c11ec7fbcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    x: -1
+    y: 0
+    z: 0
 --- !u!1 &125946381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6235,10 +6252,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1295997362}
-  - component: {fileID: 1295997361}
   - component: {fileID: 1295997363}
+  - component: {fileID: 1295997361}
   m_Layer: 0
-  m_Name: SequentialHelenHayesDataSpawner
+  m_Name: SequentialCookingDataSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6253,7 +6270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295997360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1136aa6d4ee23640b76a42359fca50e, type: 3}
+  m_Script: {fileID: 11500000, guid: f35169a9b96dac940a292f046bc34211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7545445525192044403, guid: 769f8135b252dbe46b1510c29233dc5a, type: 3}
@@ -6613,7 +6630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
-  amplify: -0.02
+  amplify: 0.01
 --- !u!4 &2011856798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2785456518587333599, guid: 5b55ca3a6e2c4df478786686ee663a51,

@@ -29,8 +29,13 @@ namespace Forno.HelenHayes
         public int Count;
     }
 
-    public class SequentialNursecareDataConversionSystem : GameObjectConversionSystem
+    public class SequentialHelenHayesDataConversionSystem : SequentialHelenHayesDataConversionSystemBase<SequentialHelenHayesDataSpawner> { }
+
+    public class SequentialHelenHayesDataConversionSystemBase<T> : GameObjectConversionSystem
+        where T : SequentialHelenHayesDataSpawner
     {
+        protected virtual void InitHelenHayes(NativeArray<Entity> entities) { }
+
         protected override void OnUpdate()
         {
             var processBlobAssets = new NativeList<Hash128>(Constants.positionCount, Allocator.Temp);
@@ -39,7 +44,7 @@ namespace Forno.HelenHayes
             int currentIndex = 0;
 
             using (var positionContext = new BlobAssetComputationContext<SequenceSettings, SequentialPositionsBlobAsset>(BlobAssetStore, 32, Allocator.Temp)) {
-                Entities.ForEach((SequentialHelenHayesDataSpawner spawner) =>
+                Entities.ForEach((T spawner) =>
                 {
                     var filePathHash = (uint)spawner.FilePath.GetHashCode();
                     var isFirst = true;
@@ -82,7 +87,7 @@ namespace Forno.HelenHayes
 
                 var settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, BlobAssetStore);
                 var index = 0;
-                Entities.ForEach((SequentialHelenHayesDataSpawner spawner) =>
+                Entities.ForEach((T spawner) =>
                 {
                     var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(spawner.Prefab, settings);
                     DstEntityManager.AddComponent<SequenceIndex>(prefab);
@@ -96,6 +101,7 @@ namespace Forno.HelenHayes
                             });
                             ++index;
                         }
+                        InitHelenHayes(instances);
                     }
                 });
 

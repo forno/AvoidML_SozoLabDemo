@@ -9,6 +9,8 @@ namespace Forno
         void Start()
         {
             Destroy(GetComponent<MeshRenderer>());
+            // Remove itself
+            Destroy(GetComponent<DestoryMeshRendererOnStart>());
         }
     }
 }
