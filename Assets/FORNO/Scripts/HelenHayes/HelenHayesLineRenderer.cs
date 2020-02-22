@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Entities;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -14,19 +11,20 @@ namespace Forno.HelenHayes
         public LineRenderer Prefab;
         private List<LineRenderer> LineRenderers;
         private EntityManager EntityManager;
+        private EntityQuery Query;
 
         // Start is called before the first frame update
         void Start()
         {
             EntityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             LineRenderers = new List<LineRenderer>();
+            Query = EntityManager.CreateEntityQuery(ComponentType.ReadOnly<HelenHayesPositions>());
         }
 
         // Update is called once per frame
         void Update()
         {
-            var query = EntityManager.CreateEntityQuery(ComponentType.ReadOnly<HelenHayesPositions>());
-            using (var components = query.ToComponentDataArray<HelenHayesPositions>(Allocator.TempJob)) {
+            using (var components = Query.ToComponentDataArray<HelenHayesPositions>(Allocator.TempJob)) {
                 var lineRendererCount = components.Length * lineRendererCountPerModel;
                 if (LineRenderers.Count > lineRendererCount) {
                     for (var i = lineRendererCount; i < LineRenderers.Count; ++i) {
@@ -46,9 +44,18 @@ namespace Forno.HelenHayes
                     Vector3[] body = {component.FrontHead, component.TopHead, component.RearHead, component.RightOffset, component.VSacral};
                     LineRenderers[curIndex].positionCount = body.Length;
                     LineRenderers[curIndex].SetPositions(body);
-                    Vector3[] leftLeg = {component.LeftAsis, component.LeftTight, component.LeftKnee, component.LeftShank, component.LeftAnkle, component.LeftToe};
-                    LineRenderers[curIndex + 1].positionCount = leftLeg.Length;
-                    LineRenderers[curIndex + 1].SetPositions(leftLeg);
+                    Vector3[] leftArm = {component.LeftWrist, component.LeftElbow, component.LeftShoulder, component.RightOffset};
+                    LineRenderers[curIndex + 1].positionCount = leftArm.Length;
+                    LineRenderers[curIndex + 1].SetPositions(leftArm);
+                    Vector3[] rightArm = {component.RightWrist, component.RightElbow, component.RightShoulder, component.RightOffset};
+                    LineRenderers[curIndex + 2].positionCount = rightArm.Length;
+                    LineRenderers[curIndex + 2].SetPositions(rightArm);
+                    Vector3[] leftLeg = {component.LeftToe, component.LeftHeel, component.LeftAnkle, component.LeftShank, component.LeftKnee, component.LeftTight, component.LeftAsis, component.VSacral};
+                    LineRenderers[curIndex + 3].positionCount = leftLeg.Length;
+                    LineRenderers[curIndex + 3].SetPositions(leftLeg);
+                    Vector3[] rightLeg = {component.RightToe, component.RightHeel, component.RightAnkle, component.RightShank, component.RightKnee, component.RightTight, component.RightAsis, component.VSacral};
+                    LineRenderers[curIndex + 4].positionCount = rightLeg.Length;
+                    LineRenderers[curIndex + 4].SetPositions(rightLeg);
                 }
             }
         }
