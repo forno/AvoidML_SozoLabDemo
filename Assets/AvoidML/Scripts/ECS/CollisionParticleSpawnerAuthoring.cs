@@ -70,10 +70,10 @@ namespace AvoidML
                     };
                     var result = new NativeList<int>(Allocator.TempJob);
                     if (collisionWorld.OverlapAabb(overlabAabbInput, ref result)) {
-                        if (spawner.Particle != null && !spawner.Particle.isPlaying)
+                        if (!spawner.Particle.isPlaying)
                             spawner.Particle.Play();
                     } else {
-                        if (spawner.Particle != null && !spawner.Particle.isStopped)
+                        if (!spawner.Particle.isStopped)
                             spawner.Particle.Stop();
                     }
                     result.Dispose();

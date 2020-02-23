@@ -66,9 +66,9 @@ namespace AvoidML
                         var localPos = closestHit.Position - avoider.WorkingPoint;
                         var localDistance = length(localPos);
                         if (localDistance < avoider.DetectRange) {
-                            rotation.Value = UnityEngine.Quaternion.Lerp(rotation.Value, Unity.Mathematics.quaternion.RotateY(radians(90)), 0.1f);
+                            rotation.Value = Quaternion.Lerp(rotation.Value, Unity.Mathematics.quaternion.RotateY(radians(90)), 0.02f);
                         } else {
-                            rotation.Value = UnityEngine.Quaternion.Lerp(rotation.Value, Unity.Mathematics.quaternion.RotateY(radians(0)), 0.1f);
+                            rotation.Value = Quaternion.Lerp(rotation.Value, Unity.Mathematics.quaternion.RotateY(radians(0)), 0.02f);
                         }
                     }
                 }).ScheduleParallel();
