@@ -2,6 +2,9 @@
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Linq;
+using Unity.Mathematics;
+using static Unity.Mathematics.math;
 
 namespace Forno.HelenHayes
 {
@@ -45,18 +48,23 @@ namespace Forno.HelenHayes
                 .ForEach((in HelenHayesPositions positions) =>
                 {
                     Vector3[] body = {positions.FrontHead, positions.TopHead, positions.RearHead, positions.VSacral};
+                    body = body.Where(p => !any(isnan(p))).ToArray();
                     lineRenderers[curIndex].positionCount = body.Length;
                     lineRenderers[curIndex].SetPositions(body);
                     Vector3[] leftArm = {positions.LeftWrist, positions.LeftElbow, positions.LeftShoulder};
+                    leftArm = leftArm.Where(p => !any(isnan(p))).ToArray();
                     lineRenderers[++curIndex].positionCount = leftArm.Length;
                     lineRenderers[curIndex].SetPositions(leftArm);
                     Vector3[] rightArm = {positions.RightWrist, positions.RightElbow, positions.RightShoulder};
+                    rightArm = rightArm.Where(p => !any(isnan(p))).ToArray();
                     lineRenderers[++curIndex].positionCount = rightArm.Length;
                     lineRenderers[curIndex].SetPositions(rightArm);
                     Vector3[] leftLeg = {positions.LeftToe, positions.LeftHeel, positions.LeftAnkle, positions.LeftShank, positions.LeftKnee, positions.LeftTight, positions.LeftAsis};
+                    leftLeg = leftLeg.Where(p => !any(isnan(p))).ToArray();
                     lineRenderers[++curIndex].positionCount = leftLeg.Length;
                     lineRenderers[curIndex].SetPositions(leftLeg);
                     Vector3[] rightLeg = {positions.RightToe, positions.RightHeel, positions.RightAnkle, positions.RightShank, positions.RightKnee, positions.RightTight, positions.RightAsis};
+                    rightLeg = rightLeg.Where(p => !any(isnan(p))).ToArray();
                     lineRenderers[++curIndex].positionCount = rightLeg.Length;
                     lineRenderers[curIndex].SetPositions(rightLeg);
                     ++curIndex;
