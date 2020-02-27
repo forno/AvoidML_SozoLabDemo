@@ -80,6 +80,7 @@ namespace Forno.HelenHayes
                     model.RightLegHint.position = positions.RightKnee / 2 + positions.RightKneeMed / 2;
                     model.RightLegTarget.rotation = Quaternion.LookRotation(positions.RightToe - rightFoot);
                     model.RightLegHint.rotation = Quaternion.LookRotation(positions.RightAsis - positions.RightToe);
+                    ++curIndex;
                 }).Run();
         }
     }

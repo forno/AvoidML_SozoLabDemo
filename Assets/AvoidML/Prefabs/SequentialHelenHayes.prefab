@@ -15,12 +15,9 @@ GameObject:
   - component: {fileID: 6738583227728773517}
   - component: {fileID: 6738583227728773518}
   - component: {fileID: 6738583227728773519}
-  - component: {fileID: 6738583227728773506}
   - component: {fileID: 6738583227728773516}
-  - component: {fileID: 6738583227728773505}
-  - component: {fileID: 6738583227728773504}
-  - component: {fileID: 6738583227728773511}
-  - component: {fileID: 6738583227728773510}
+  - component: {fileID: -710364828213164798}
+  - component: {fileID: 7114165003949400312}
   m_Layer: 0
   m_Name: SequentialHelenHayes
   m_TagString: Untagged
@@ -265,134 +262,6 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
---- !u!114 &6738583227728773506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6738583227728773515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ccff3a7a2fe69a468dbe41a0bfe4124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FrontHead:
-    x: 0
-    y: 0
-    z: 0
-  TopHead:
-    x: 0
-    y: 0
-    z: 0
-  RearHead:
-    x: 0
-    y: 0
-    z: 0
-  RightOffset:
-    x: 0
-    y: 0
-    z: 0
-  VSacral:
-    x: 0
-    y: 0
-    z: 0
-  LeftShoulder:
-    x: 0
-    y: 0
-    z: 0
-  LeftElbow:
-    x: 0
-    y: 0
-    z: 0
-  LeftWrist:
-    x: 0
-    y: 0
-    z: 0
-  RightShoulder:
-    x: 0
-    y: 0
-    z: 0
-  RightElbow:
-    x: 0
-    y: 0
-    z: 0
-  RightWrist:
-    x: 0
-    y: 0
-    z: 0
-  LeftAsis:
-    x: 0
-    y: 0
-    z: 0
-  LeftTight:
-    x: 0
-    y: 0
-    z: 0
-  LeftKnee:
-    x: 0
-    y: 0
-    z: 0
-  LeftKneeMed:
-    x: 0
-    y: 0
-    z: 0
-  LeftShank:
-    x: 0
-    y: 0
-    z: 0
-  LeftAnkle:
-    x: 0
-    y: 0
-    z: 0
-  LeftAnkleMed:
-    x: 0
-    y: 0
-    z: 0
-  LeftHeel:
-    x: 0
-    y: 0
-    z: 0
-  LeftToe:
-    x: 0
-    y: 0
-    z: 0
-  RightAsis:
-    x: 0
-    y: 0
-    z: 0
-  RightTight:
-    x: 0
-    y: 0
-    z: 0
-  RightKnee:
-    x: 0
-    y: 0
-    z: 0
-  RightKneeMed:
-    x: 0
-    y: 0
-    z: 0
-  RightShank:
-    x: 0
-    y: 0
-    z: 0
-  RightAnkle:
-    x: 0
-    y: 0
-    z: 0
-  RightAnkleMed:
-    x: 0
-    y: 0
-    z: 0
-  RightHeel:
-    x: 0
-    y: 0
-    z: 0
-  RightToe:
-    x: 0
-    y: 0
-    z: 0
 --- !u!114 &6738583227728773516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,19 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 0
---- !u!114 &6738583227728773505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6738583227728773515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 932895ab904947f438378e7486d161c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6738583227728773504
+--- !u!114 &-710364828213164798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -431,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7545445525192044403, guid: 40839d4cad4d57b4eb3f7cdadcde566a, type: 3}
---- !u!114 &6738583227728773511
+--- !u!114 &7114165003949400312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,18 +297,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6738583227728773515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 480d05963b042734597b3274f3fc1df9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6738583227728773510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6738583227728773515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12b48b6526e6ba46adf799fdf552a60, type: 3}
+  m_Script: {fileID: 11500000, guid: 932895ab904947f438378e7486d161c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
