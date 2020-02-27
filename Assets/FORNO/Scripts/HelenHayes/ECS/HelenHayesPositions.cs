@@ -1,6 +1,8 @@
-﻿using Unity.Entities;
+﻿using Forno.Ecs;
+using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using static Unity.Mathematics.math;
 
 namespace Forno.HelenHayes
 {
@@ -15,8 +17,8 @@ namespace Forno.HelenHayes
         public float3 LeftShoulder;
         public float3 LeftElbow;
         public float3 LeftWrist;
-        public float3 RightElbow;
         public float3 RightShoulder;
+        public float3 RightElbow;
         public float3 RightWrist;
         public float3 LeftAsis;
         public float3 LeftTight;
@@ -42,41 +44,41 @@ namespace Forno.HelenHayes
     {
         protected override void OnUpdate()
         {
-            var translationFromEntity = GetComponentDataFromEntity<Translation>(true);
-
             Entities
-                .WithReadOnly(translationFromEntity)
-                .ForEach((ref HelenHayesPositions positions, in HelenHayesEntitiesHolder helenHayes) =>
+                .ForEach((ref HelenHayesPositions positions, in SequentialHelenHayesData data, in SequenceIndex index, in SequenceTimeFrac frac, in Translation translation) =>
                 {
-                    positions.FrontHead     = translationFromEntity[helenHayes.FrontHead    ].Value;
-                    positions.TopHead       = translationFromEntity[helenHayes.TopHead      ].Value;
-                    positions.RearHead      = translationFromEntity[helenHayes.RearHead     ].Value;
-                    positions.RightOffset   = translationFromEntity[helenHayes.RightOffset  ].Value;
-                    positions.VSacral       = translationFromEntity[helenHayes.VSacral      ].Value;
-                    positions.LeftShoulder  = translationFromEntity[helenHayes.LeftShoulder ].Value;
-                    positions.LeftElbow     = translationFromEntity[helenHayes.LeftElbow    ].Value;
-                    positions.LeftWrist     = translationFromEntity[helenHayes.LeftWrist    ].Value;
-                    positions.RightElbow    = translationFromEntity[helenHayes.RightElbow   ].Value;
-                    positions.RightShoulder = translationFromEntity[helenHayes.RightShoulder].Value;
-                    positions.RightWrist    = translationFromEntity[helenHayes.RightWrist   ].Value;
-                    positions.LeftAsis      = translationFromEntity[helenHayes.LeftAsis     ].Value;
-                    positions.LeftTight     = translationFromEntity[helenHayes.LeftTight    ].Value;
-                    positions.LeftKnee      = translationFromEntity[helenHayes.LeftKnee     ].Value;
-                    positions.LeftKneeMed   = translationFromEntity[helenHayes.LeftKneeMed  ].Value;
-                    positions.LeftShank     = translationFromEntity[helenHayes.LeftShank    ].Value;
-                    positions.LeftAnkle     = translationFromEntity[helenHayes.LeftAnkle    ].Value;
-                    positions.LeftAnkleMed  = translationFromEntity[helenHayes.LeftAnkleMed ].Value;
-                    positions.LeftHeel      = translationFromEntity[helenHayes.LeftHeel     ].Value;
-                    positions.LeftToe       = translationFromEntity[helenHayes.LeftToe      ].Value;
-                    positions.RightTight    = translationFromEntity[helenHayes.RightTight   ].Value;
-                    positions.RightAsis     = translationFromEntity[helenHayes.RightAsis    ].Value;
-                    positions.RightKnee     = translationFromEntity[helenHayes.RightKnee    ].Value;
-                    positions.RightKneeMed  = translationFromEntity[helenHayes.RightKneeMed ].Value;
-                    positions.RightShank    = translationFromEntity[helenHayes.RightShank   ].Value;
-                    positions.RightAnkle    = translationFromEntity[helenHayes.RightAnkle   ].Value;
-                    positions.RightAnkleMed = translationFromEntity[helenHayes.RightAnkleMed].Value;
-                    positions.RightHeel     = translationFromEntity[helenHayes.RightHeel    ].Value;
-                    positions.RightToe      = translationFromEntity[helenHayes.RightToe     ].Value;
+                    ref var sequentialData = ref data.BlobData.Value.Positions;
+                    var alignIndex = clamp(Constants.PositionCount * (index.Value + 1), 0, sequentialData.Length - Constants.PositionCount);
+                    var alignLastIndex = clamp(Constants.PositionCount * index.Value, 0, sequentialData.Length - Constants.PositionCount);
+                    positions.FrontHead     = lerp(sequentialData[alignLastIndex + Constants.FrontHeadIndex    ], sequentialData[alignIndex + Constants.FrontHeadIndex    ], frac.Value) + translation.Value;
+                    positions.TopHead       = lerp(sequentialData[alignLastIndex + Constants.TopHeadIndex      ], sequentialData[alignIndex + Constants.TopHeadIndex      ], frac.Value) + translation.Value;
+                    positions.RearHead      = lerp(sequentialData[alignLastIndex + Constants.RearHeadIndex     ], sequentialData[alignIndex + Constants.RearHeadIndex     ], frac.Value) + translation.Value;
+                    positions.RightOffset   = lerp(sequentialData[alignLastIndex + Constants.RightOffsetIndex  ], sequentialData[alignIndex + Constants.RightOffsetIndex  ], frac.Value) + translation.Value;
+                    positions.VSacral       = lerp(sequentialData[alignLastIndex + Constants.VSacralIndex      ], sequentialData[alignIndex + Constants.VSacralIndex      ], frac.Value) + translation.Value;
+                    positions.LeftShoulder  = lerp(sequentialData[alignLastIndex + Constants.LeftShoulderIndex ], sequentialData[alignIndex + Constants.LeftShoulderIndex ], frac.Value) + translation.Value;
+                    positions.LeftElbow     = lerp(sequentialData[alignLastIndex + Constants.LeftElbowIndex    ], sequentialData[alignIndex + Constants.LeftElbowIndex    ], frac.Value) + translation.Value;
+                    positions.LeftWrist     = lerp(sequentialData[alignLastIndex + Constants.LeftWristIndex    ], sequentialData[alignIndex + Constants.LeftWristIndex    ], frac.Value) + translation.Value;
+                    positions.RightShoulder = lerp(sequentialData[alignLastIndex + Constants.RightShoulderIndex], sequentialData[alignIndex + Constants.RightShoulderIndex], frac.Value) + translation.Value;
+                    positions.RightElbow    = lerp(sequentialData[alignLastIndex + Constants.RightElbowIndex   ], sequentialData[alignIndex + Constants.RightElbowIndex   ], frac.Value) + translation.Value;
+                    positions.RightWrist    = lerp(sequentialData[alignLastIndex + Constants.RightWristIndex   ], sequentialData[alignIndex + Constants.RightWristIndex   ], frac.Value) + translation.Value;
+                    positions.LeftAsis      = lerp(sequentialData[alignLastIndex + Constants.LeftAsisIndex     ], sequentialData[alignIndex + Constants.LeftAsisIndex     ], frac.Value) + translation.Value;
+                    positions.LeftTight     = lerp(sequentialData[alignLastIndex + Constants.LeftTightIndex    ], sequentialData[alignIndex + Constants.LeftTightIndex    ], frac.Value) + translation.Value;
+                    positions.LeftKnee      = lerp(sequentialData[alignLastIndex + Constants.LeftKneeIndex     ], sequentialData[alignIndex + Constants.LeftKneeIndex     ], frac.Value) + translation.Value;
+                    positions.LeftKneeMed   = lerp(sequentialData[alignLastIndex + Constants.LeftKneeMedIndex  ], sequentialData[alignIndex + Constants.LeftKneeMedIndex  ], frac.Value) + translation.Value;
+                    positions.LeftShank     = lerp(sequentialData[alignLastIndex + Constants.LeftShankIndex    ], sequentialData[alignIndex + Constants.LeftShankIndex    ], frac.Value) + translation.Value;
+                    positions.LeftAnkle     = lerp(sequentialData[alignLastIndex + Constants.LeftAnkleIndex    ], sequentialData[alignIndex + Constants.LeftAnkleIndex    ], frac.Value) + translation.Value;
+                    positions.LeftAnkleMed  = lerp(sequentialData[alignLastIndex + Constants.LeftAnkleMedIndex ], sequentialData[alignIndex + Constants.LeftAnkleMedIndex ], frac.Value) + translation.Value;
+                    positions.LeftHeel      = lerp(sequentialData[alignLastIndex + Constants.LeftHeelIndex     ], sequentialData[alignIndex + Constants.LeftHeelIndex     ], frac.Value) + translation.Value;
+                    positions.LeftToe       = lerp(sequentialData[alignLastIndex + Constants.LeftToeIndex      ], sequentialData[alignIndex + Constants.LeftToeIndex      ], frac.Value) + translation.Value;
+                    positions.RightTight    = lerp(sequentialData[alignLastIndex + Constants.RightTightIndex   ], sequentialData[alignIndex + Constants.RightTightIndex   ], frac.Value) + translation.Value;
+                    positions.RightAsis     = lerp(sequentialData[alignLastIndex + Constants.RightAsisIndex    ], sequentialData[alignIndex + Constants.RightAsisIndex    ], frac.Value) + translation.Value;
+                    positions.RightKnee     = lerp(sequentialData[alignLastIndex + Constants.RightKneeIndex    ], sequentialData[alignIndex + Constants.RightKneeIndex    ], frac.Value) + translation.Value;
+                    positions.RightKneeMed  = lerp(sequentialData[alignLastIndex + Constants.RightKneeMedIndex ], sequentialData[alignIndex + Constants.RightKneeMedIndex ], frac.Value) + translation.Value;
+                    positions.RightShank    = lerp(sequentialData[alignLastIndex + Constants.RightShankIndex   ], sequentialData[alignIndex + Constants.RightShankIndex   ], frac.Value) + translation.Value;
+                    positions.RightAnkle    = lerp(sequentialData[alignLastIndex + Constants.RightAnkleIndex   ], sequentialData[alignIndex + Constants.RightAnkleIndex   ], frac.Value) + translation.Value;
+                    positions.RightAnkleMed = lerp(sequentialData[alignLastIndex + Constants.RightAnkleMedIndex], sequentialData[alignIndex + Constants.RightAnkleMedIndex], frac.Value) + translation.Value;
+                    positions.RightHeel     = lerp(sequentialData[alignLastIndex + Constants.RightHeelIndex    ], sequentialData[alignIndex + Constants.RightHeelIndex    ], frac.Value) + translation.Value;
+                    positions.RightToe      = lerp(sequentialData[alignLastIndex + Constants.RightToeIndex     ], sequentialData[alignIndex + Constants.RightToeIndex     ], frac.Value) + translation.Value;
                 }).ScheduleParallel();
         }
     }

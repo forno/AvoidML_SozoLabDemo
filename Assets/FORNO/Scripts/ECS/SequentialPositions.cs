@@ -42,8 +42,7 @@ namespace Forno.Ecs
                         var localPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[validIndex]);
                         var localLastPosition = transform(localToWorldFromEntity[positionsRef.Parent].Value, positions[lastIndex]);
                         translation.Value = lerp(localLastPosition, localPosition, frac.Value);
-                        // TODO: implement correct velocity
-                        //velocity.Linear = (localPosition - localLastPosition) / deltaTime * frequency.Value / deltaTime;
+                        velocity.Linear = (localPosition - localLastPosition) / frequency.Value;
                     }).ScheduleParallel();
             } else {
                 Entities

@@ -14,7 +14,7 @@ namespace Forno.HelenHayes
 {
     [DisallowMultipleComponent]
     [RequiresEntityConversion]
-    public class SequentialHelenHayesDataSpawner : MonoBehaviour
+    public class SequentialDataAsHelenHayesSpawner : MonoBehaviour
     {
         public GameObject Prefab;
         public string FilePath;
@@ -30,16 +30,16 @@ namespace Forno.HelenHayes
         public int Count;
     }
 
-    public class SequentialHelenHayesDataConversionSystem : SequentialHelenHayesDataConversionSystemBase<SequentialHelenHayesDataSpawner> { }
+    public class SequentialDataAsHelenHayesConversionSystem : SequentialDataAsHelenHayesConversionSystemBase<SequentialDataAsHelenHayesSpawner> { }
 
-    public class SequentialHelenHayesDataConversionSystemBase<T> : GameObjectConversionSystem
-        where T : SequentialHelenHayesDataSpawner
+    public class SequentialDataAsHelenHayesConversionSystemBase<T> : GameObjectConversionSystem
+        where T : SequentialDataAsHelenHayesSpawner
     {
         protected virtual void InitHelenHayes(NativeArray<Entity> entities) { }
 
         protected override void OnUpdate()
         {
-            var processBlobAssets = new NativeList<Hash128>(Constants.positionCount, Allocator.Temp);
+            var processBlobAssets = new NativeList<Hash128>(Constants.PositionCount, Allocator.Temp);
             var blobFactoryPositions = new NativeList<float3>(Allocator.TempJob);
             var blobLength = 0;
             int currentIndex = 0;
@@ -50,7 +50,7 @@ namespace Forno.HelenHayes
                     var filePathHash = (uint)spawner.FilePath.GetHashCode();
                     var isFirst = true;
                     var dataLength = -1;
-                    for (var i = 0; i < Constants.positionCount; ++i) {
+                    for (var i = 0; i < Constants.PositionCount; ++i) {
                         var hash = new Hash128(filePathHash, (uint)i, 0, 0);
                         processBlobAssets.Add(hash);
                         positionContext.AssociateBlobAssetWithUnityObject(hash, spawner.gameObject);
@@ -60,7 +60,7 @@ namespace Forno.HelenHayes
                                 currentIndex = blobLength;
                                 var readToEnd = File.ReadAllLines(Path.Combine(Application.streamingAssetsPath, spawner.FilePath));
                                 dataLength = readToEnd.Length - (spawner.HasHeader ? 1 : 0);
-                                blobLength += Constants.positionCount * dataLength;
+                                blobLength += Constants.PositionCount * dataLength;
                                 blobFactoryPositions.Resize(blobLength, NativeArrayOptions.UninitializedMemory);
                                 Fill(blobFactoryPositions, readToEnd, spawner.HasHeader, currentIndex);
                             }
@@ -94,7 +94,7 @@ namespace Forno.HelenHayes
                     DstEntityManager.AddComponent<SequenceIndex>(prefab);
                     DstEntityManager.AddComponent<SequenceTimeFrac>(prefab);
                     DstEntityManager.AddComponentData(prefab, new SequenceFrequency { Value = spawner.FrequencyOfSequence });
-                    using (var instances = DstEntityManager.Instantiate(prefab, Constants.positionCount, Allocator.Temp)) {
+                    using (var instances = DstEntityManager.Instantiate(prefab, Constants.PositionCount, Allocator.Temp)) {
                         for (var i = 0; i < instances.Length; ++i) {
                             positionContext.GetBlobAsset(processBlobAssets[index], out var positionBlob);
                             DstEntityManager.AddComponentData(instances[i], new SequentialPositions {

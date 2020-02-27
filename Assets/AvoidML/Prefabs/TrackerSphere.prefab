@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 8579500461418176283}
   - component: {fileID: 8627937681090847848}
   - component: {fileID: 4779024373328172942}
-  - component: {fileID: 4221562082050011955}
-  - component: {fileID: 4257081305178835783}
-  - component: {fileID: -6181419295446156859}
+  - component: {fileID: 6377686859278269858}
+  - component: {fileID: 4781370087436680542}
   m_Layer: 0
-  m_Name: SequentceDataTrackerSphere
+  m_Name: Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4221562082050011955
+--- !u!114 &6377686859278269858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +154,7 @@ MonoBehaviour:
       m_Override: 0
       m_Value: 0000000000000000
   m_ConvexRadius_Deprecated: -1
---- !u!114 &4257081305178835783
+--- !u!114 &4781370087436680542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,16 +203,3 @@ MonoBehaviour:
     Tag05: 0
     Tag06: 0
     Tag07: 0
---- !u!114 &-6181419295446156859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545445525192044403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11f0a0e135acde44998929394d4ffe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value: 0
