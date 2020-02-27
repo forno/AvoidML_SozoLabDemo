@@ -1,14 +1,15 @@
 ﻿using Forno.Ecs;
 using System.IO;
+using System.Linq;
 using System;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
+using UnityEngine.Assertions;
 using UnityEngine;
 using Hash128 = Unity.Entities.Hash128;
-using UnityEngine.Assertions;
 
 namespace Forno.HelenHayes
 {
@@ -63,19 +64,6 @@ namespace Forno.HelenHayes
                 var hash = new Hash128((uint)FilePath.GetHashCode(), 0, 0, 0);
                 context.AssociateBlobAssetWithUnityObject(hash, gameObject);
                 if (context.NeedToComputeBlobAsset(hash)) {
-                    var readToEnd = File.ReadAllLines(Path.Combine(Application.streamingAssetsPath, FilePath));
-                    var headSkip = (HasHeader ? 1 : 0);
-                    var dataLength = readToEnd.Length - headSkip;
-
-                    var positions = new NativeArray<float3>(dataLength * Constants.PositionCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
-                    for (var i = 0; i < dataLength; ++i) {
-                        var data = Array.ConvertAll(readToEnd[i + headSkip].Split(','), (string s) => { if (float.TryParse(s, out var f)) return f; else return float.NaN; });
-                        for (var j = 0; j < Constants.PositionCount; ++j) {
-                            // Convert coordinate system, and 0.001f means milli metre to metre
-                            positions[i * Constants.PositionCount + j] = new float3(data[j * 3], data[j * 3 + 2], data[j * 3 + 1]) * 0.001f;
-                        }
-                    }
-
                     var indexes = new NativeArray<int>(Constants.PositionCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
                     indexes[Constants.FrontHeadIndex]     = FrontHeadIndex;
                     indexes[Constants.TopHeadIndex]       = TopHeadIndex;
@@ -106,6 +94,20 @@ namespace Forno.HelenHayes
                     indexes[Constants.RightAnkleMedIndex] = RightAnkleMedIndex;
                     indexes[Constants.RightHeelIndex]     = RightHeelIndex;
                     indexes[Constants.RightToeIndex]      = RightToeIndex;
+                    Assert.AreEqual(29, indexes.Distinct().Count());
+
+                    var readToEnd = File.ReadAllLines(Path.Combine(Application.streamingAssetsPath, FilePath));
+                    var headSkip = (HasHeader ? 1 : 0);
+                    var dataLength = readToEnd.Length - headSkip;
+
+                    var positions = new NativeArray<float3>(dataLength * Constants.PositionCount, Allocator.TempJob, NativeArrayOptions.UninitializedMemory);
+                    for (var i = 0; i < dataLength; ++i) {
+                        var data = Array.ConvertAll(readToEnd[i + headSkip].Split(','), (string s) => { if (float.TryParse(s, out var f)) return f; else return float.NaN; });
+                        for (var j = 0; j < Constants.PositionCount; ++j) {
+                            // Convert coordinate system, and 0.001f means milli metre to metre
+                            positions[i * Constants.PositionCount + j] = new float3(data[j * 3], data[j * 3 + 2], data[j * 3 + 1]) * 0.001f;
+                        }
+                    }
 
                     context.AddBlobAssetToCompute(hash, new SequentialHelenHayesSettings());
                     var job = new SequentialHelenHayesJob(positions, indexes);
