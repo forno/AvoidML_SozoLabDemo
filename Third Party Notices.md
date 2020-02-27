@@ -15,6 +15,13 @@ External/Unity-Technologies/UnityChan:
 - [UnityChan License](https://unity-chan.com/contents/guideline/)
 - UnityChan © Unity Technologies Japan/UCL
 
+External/Unity-Technologies/com.unity.ml-agents
+
+- Component Name: [ml-agents](https://github.com/Unity-Technologies/ml-agents)
+- License Type: "[Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)"
+- [ml-agents License](https://github.com/Unity-Technologies/ml-agents/blob/master/LICENSE)
+- Copyright 2017 Unity Technologies
+
 External/VRM:
 
 - Component Name: [vrm-c/UniVRM](https://github.com/vrm-c/UniVRM)
