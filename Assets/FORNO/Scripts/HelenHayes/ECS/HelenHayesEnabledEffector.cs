@@ -7,13 +7,14 @@ namespace Forno.HelenHayes
     [GenerateAuthoringComponent]
     public struct HelenHayesEnabledEffector : IComponentData { }
 
+    [UpdateInGroup(typeof(InitializationSystemGroup))]
     public class HelenHayesEnabledEffectorSystem : SystemBase
     {
-        private EndSimulationEntityCommandBufferSystem system;
+        private EndInitializationEntityCommandBufferSystem system;
 
         protected override void OnCreate()
         {
-            system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
+            system = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<EndInitializationEntityCommandBufferSystem>();
         }
 
         protected override void OnUpdate()

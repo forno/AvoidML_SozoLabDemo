@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 6738583227728773507}
   - component: {fileID: 6738583227728773517}
   - component: {fileID: 6738583227728773518}
-  - component: {fileID: 6738583227728773519}
-  - component: {fileID: 6738583227728773516}
-  - component: {fileID: -710364828213164798}
-  - component: {fileID: 7114165003949400312}
+  - component: {fileID: 3356062419394704756}
+  - component: {fileID: -4282883107024401288}
+  - component: {fileID: 8764924135803171612}
   m_Layer: 0
   m_Name: SequentialHelenHayes
   m_TagString: Untagged
@@ -134,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 0
---- !u!114 &6738583227728773519
+--- !u!114 &3356062419394704756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,20 +261,7 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
---- !u!114 &6738583227728773516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6738583227728773515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11f0a0e135acde44998929394d4ffe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value: 0
---- !u!114 &-710364828213164798
+--- !u!114 &-4282883107024401288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 7545445525192044403, guid: 40839d4cad4d57b4eb3f7cdadcde566a, type: 3}
---- !u!114 &7114165003949400312
+--- !u!114 &8764924135803171612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
