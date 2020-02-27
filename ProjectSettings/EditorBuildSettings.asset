@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AvoidSequentialHelenHayes.unity
     guid: dd7b1ec38e07a8b4eab69b364477fdc8
+  - enabled: 1
+    path: Assets/Scenes/AvoidSequentialHelenHayesMultipul.unity
+    guid: 80e70268de89d8943a1548d9ab5dcbfa
   m_configObjects: {}
