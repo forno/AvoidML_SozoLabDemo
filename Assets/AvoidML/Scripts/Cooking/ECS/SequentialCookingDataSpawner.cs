@@ -7,13 +7,13 @@ namespace AvoidML.Cooking
 {
     [DisallowMultipleComponent]
     [RequiresEntityConversion]
-    public class SequentialCookingDataSpawner : SequentialHelenHayesDataSpawner { }
+    public class SequentialCookingDataSpawner : SequentialDataAsHelenHayesSpawner { }
 
-    public class SequentialCookingDataConversionSystem : SequentialHelenHayesDataConversionSystemBase<SequentialCookingDataSpawner>
+    public class SequentialCookingDataConversionSystem : SequentialDataAsHelenHayesConversionSystemBase<SequentialCookingDataSpawner>
     {
         protected override void InitHelenHayes(NativeArray<Entity> entities)
         {
-            var entity = DstEntityManager.CreateEntity(typeof(HelenHayesEntitiesHolder), typeof(HelenHayesPositions));
+            var entity = DstEntityManager.CreateEntity(typeof(HelenHayesEntitiesHolder), typeof(HelenHayesPositions), typeof(HelenHayesPositionsFromEntitiesHolder));
             DstEntityManager.SetComponentData(entity, new HelenHayesEntitiesHolder
             {
                 TopHead       = entities[0],

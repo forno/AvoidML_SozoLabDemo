@@ -1,4 +1,5 @@
 ﻿using Unity.Entities;
+using Unity.Transforms;
 
 namespace Forno.HelenHayes
 {
@@ -13,8 +14,8 @@ namespace Forno.HelenHayes
         public Entity LeftShoulder;
         public Entity LeftElbow;
         public Entity LeftWrist;
-        public Entity RightElbow;
         public Entity RightShoulder;
+        public Entity RightElbow;
         public Entity RightWrist;
         public Entity LeftAsis;
         public Entity LeftTight;

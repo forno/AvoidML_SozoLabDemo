@@ -16,13 +16,12 @@ namespace Forno.Ecs
 
         protected override void OnUpdate()
         {
-            var deltaTime = Time.DeltaTime;
-            var isBackToTheFuture = IsBackToTheFuture;
+            var deltaTime = Time.DeltaTime * (IsBackToTheFuture ? -1 : 1);
             Entities
                 .WithEntityQueryOptions(EntityQueryOptions.IncludeDisabled)
                 .ForEach((ref LocalTime time) =>
                 {
-                    time.Value += deltaTime * (isBackToTheFuture ? -1 : 1);
+                    time.Value += deltaTime;
                 }).ScheduleParallel();
         }
     }
