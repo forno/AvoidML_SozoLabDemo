@@ -1,7 +1,7 @@
-﻿using Forno.Ecs;
-using Unity.Entities;
+﻿using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using Xmaho;
 using static Unity.Mathematics.math;
 
 namespace Forno.HelenHayes
@@ -45,40 +45,40 @@ namespace Forno.HelenHayes
         protected override void OnUpdate()
         {
             Entities
-                .ForEach((ref HelenHayesPositions positions, in SequentialHelenHayesData data, in SequenceIndex index, in SequenceTimeFrac frac, in Translation translation) =>
+                .ForEach((ref HelenHayesPositions positions, in SequentialHelenHayesData data, in SequenceIndex index, in Translation translation) =>
                 {
                     ref var sequentialData = ref data.BlobData.Value.Positions;
                     var alignIndex = clamp(Constants.PositionCount * (index.Value + 1), 0, sequentialData.Length - Constants.PositionCount);
                     var alignLastIndex = clamp(Constants.PositionCount * index.Value, 0, sequentialData.Length - Constants.PositionCount);
-                    positions.FrontHead     = lerp(sequentialData[alignLastIndex + Constants.FrontHeadIndex    ], sequentialData[alignIndex + Constants.FrontHeadIndex    ], frac.Value) + translation.Value;
-                    positions.TopHead       = lerp(sequentialData[alignLastIndex + Constants.TopHeadIndex      ], sequentialData[alignIndex + Constants.TopHeadIndex      ], frac.Value) + translation.Value;
-                    positions.RearHead      = lerp(sequentialData[alignLastIndex + Constants.RearHeadIndex     ], sequentialData[alignIndex + Constants.RearHeadIndex     ], frac.Value) + translation.Value;
-                    positions.RightOffset   = lerp(sequentialData[alignLastIndex + Constants.RightOffsetIndex  ], sequentialData[alignIndex + Constants.RightOffsetIndex  ], frac.Value) + translation.Value;
-                    positions.VSacral       = lerp(sequentialData[alignLastIndex + Constants.VSacralIndex      ], sequentialData[alignIndex + Constants.VSacralIndex      ], frac.Value) + translation.Value;
-                    positions.LeftShoulder  = lerp(sequentialData[alignLastIndex + Constants.LeftShoulderIndex ], sequentialData[alignIndex + Constants.LeftShoulderIndex ], frac.Value) + translation.Value;
-                    positions.LeftElbow     = lerp(sequentialData[alignLastIndex + Constants.LeftElbowIndex    ], sequentialData[alignIndex + Constants.LeftElbowIndex    ], frac.Value) + translation.Value;
-                    positions.LeftWrist     = lerp(sequentialData[alignLastIndex + Constants.LeftWristIndex    ], sequentialData[alignIndex + Constants.LeftWristIndex    ], frac.Value) + translation.Value;
-                    positions.RightShoulder = lerp(sequentialData[alignLastIndex + Constants.RightShoulderIndex], sequentialData[alignIndex + Constants.RightShoulderIndex], frac.Value) + translation.Value;
-                    positions.RightElbow    = lerp(sequentialData[alignLastIndex + Constants.RightElbowIndex   ], sequentialData[alignIndex + Constants.RightElbowIndex   ], frac.Value) + translation.Value;
-                    positions.RightWrist    = lerp(sequentialData[alignLastIndex + Constants.RightWristIndex   ], sequentialData[alignIndex + Constants.RightWristIndex   ], frac.Value) + translation.Value;
-                    positions.LeftAsis      = lerp(sequentialData[alignLastIndex + Constants.LeftAsisIndex     ], sequentialData[alignIndex + Constants.LeftAsisIndex     ], frac.Value) + translation.Value;
-                    positions.LeftTight     = lerp(sequentialData[alignLastIndex + Constants.LeftTightIndex    ], sequentialData[alignIndex + Constants.LeftTightIndex    ], frac.Value) + translation.Value;
-                    positions.LeftKnee      = lerp(sequentialData[alignLastIndex + Constants.LeftKneeIndex     ], sequentialData[alignIndex + Constants.LeftKneeIndex     ], frac.Value) + translation.Value;
-                    positions.LeftKneeMed   = lerp(sequentialData[alignLastIndex + Constants.LeftKneeMedIndex  ], sequentialData[alignIndex + Constants.LeftKneeMedIndex  ], frac.Value) + translation.Value;
-                    positions.LeftShank     = lerp(sequentialData[alignLastIndex + Constants.LeftShankIndex    ], sequentialData[alignIndex + Constants.LeftShankIndex    ], frac.Value) + translation.Value;
-                    positions.LeftAnkle     = lerp(sequentialData[alignLastIndex + Constants.LeftAnkleIndex    ], sequentialData[alignIndex + Constants.LeftAnkleIndex    ], frac.Value) + translation.Value;
-                    positions.LeftAnkleMed  = lerp(sequentialData[alignLastIndex + Constants.LeftAnkleMedIndex ], sequentialData[alignIndex + Constants.LeftAnkleMedIndex ], frac.Value) + translation.Value;
-                    positions.LeftHeel      = lerp(sequentialData[alignLastIndex + Constants.LeftHeelIndex     ], sequentialData[alignIndex + Constants.LeftHeelIndex     ], frac.Value) + translation.Value;
-                    positions.LeftToe       = lerp(sequentialData[alignLastIndex + Constants.LeftToeIndex      ], sequentialData[alignIndex + Constants.LeftToeIndex      ], frac.Value) + translation.Value;
-                    positions.RightTight    = lerp(sequentialData[alignLastIndex + Constants.RightTightIndex   ], sequentialData[alignIndex + Constants.RightTightIndex   ], frac.Value) + translation.Value;
-                    positions.RightAsis     = lerp(sequentialData[alignLastIndex + Constants.RightAsisIndex    ], sequentialData[alignIndex + Constants.RightAsisIndex    ], frac.Value) + translation.Value;
-                    positions.RightKnee     = lerp(sequentialData[alignLastIndex + Constants.RightKneeIndex    ], sequentialData[alignIndex + Constants.RightKneeIndex    ], frac.Value) + translation.Value;
-                    positions.RightKneeMed  = lerp(sequentialData[alignLastIndex + Constants.RightKneeMedIndex ], sequentialData[alignIndex + Constants.RightKneeMedIndex ], frac.Value) + translation.Value;
-                    positions.RightShank    = lerp(sequentialData[alignLastIndex + Constants.RightShankIndex   ], sequentialData[alignIndex + Constants.RightShankIndex   ], frac.Value) + translation.Value;
-                    positions.RightAnkle    = lerp(sequentialData[alignLastIndex + Constants.RightAnkleIndex   ], sequentialData[alignIndex + Constants.RightAnkleIndex   ], frac.Value) + translation.Value;
-                    positions.RightAnkleMed = lerp(sequentialData[alignLastIndex + Constants.RightAnkleMedIndex], sequentialData[alignIndex + Constants.RightAnkleMedIndex], frac.Value) + translation.Value;
-                    positions.RightHeel     = lerp(sequentialData[alignLastIndex + Constants.RightHeelIndex    ], sequentialData[alignIndex + Constants.RightHeelIndex    ], frac.Value) + translation.Value;
-                    positions.RightToe      = lerp(sequentialData[alignLastIndex + Constants.RightToeIndex     ], sequentialData[alignIndex + Constants.RightToeIndex     ], frac.Value) + translation.Value;
+                    positions.FrontHead     = lerp(sequentialData[alignLastIndex + Constants.FrontHeadIndex    ], sequentialData[alignIndex + Constants.FrontHeadIndex    ], index.Fraction) + translation.Value;
+                    positions.TopHead       = lerp(sequentialData[alignLastIndex + Constants.TopHeadIndex      ], sequentialData[alignIndex + Constants.TopHeadIndex      ], index.Fraction) + translation.Value;
+                    positions.RearHead      = lerp(sequentialData[alignLastIndex + Constants.RearHeadIndex     ], sequentialData[alignIndex + Constants.RearHeadIndex     ], index.Fraction) + translation.Value;
+                    positions.RightOffset   = lerp(sequentialData[alignLastIndex + Constants.RightOffsetIndex  ], sequentialData[alignIndex + Constants.RightOffsetIndex  ], index.Fraction) + translation.Value;
+                    positions.VSacral       = lerp(sequentialData[alignLastIndex + Constants.VSacralIndex      ], sequentialData[alignIndex + Constants.VSacralIndex      ], index.Fraction) + translation.Value;
+                    positions.LeftShoulder  = lerp(sequentialData[alignLastIndex + Constants.LeftShoulderIndex ], sequentialData[alignIndex + Constants.LeftShoulderIndex ], index.Fraction) + translation.Value;
+                    positions.LeftElbow     = lerp(sequentialData[alignLastIndex + Constants.LeftElbowIndex    ], sequentialData[alignIndex + Constants.LeftElbowIndex    ], index.Fraction) + translation.Value;
+                    positions.LeftWrist     = lerp(sequentialData[alignLastIndex + Constants.LeftWristIndex    ], sequentialData[alignIndex + Constants.LeftWristIndex    ], index.Fraction) + translation.Value;
+                    positions.RightShoulder = lerp(sequentialData[alignLastIndex + Constants.RightShoulderIndex], sequentialData[alignIndex + Constants.RightShoulderIndex], index.Fraction) + translation.Value;
+                    positions.RightElbow    = lerp(sequentialData[alignLastIndex + Constants.RightElbowIndex   ], sequentialData[alignIndex + Constants.RightElbowIndex   ], index.Fraction) + translation.Value;
+                    positions.RightWrist    = lerp(sequentialData[alignLastIndex + Constants.RightWristIndex   ], sequentialData[alignIndex + Constants.RightWristIndex   ], index.Fraction) + translation.Value;
+                    positions.LeftAsis      = lerp(sequentialData[alignLastIndex + Constants.LeftAsisIndex     ], sequentialData[alignIndex + Constants.LeftAsisIndex     ], index.Fraction) + translation.Value;
+                    positions.LeftTight     = lerp(sequentialData[alignLastIndex + Constants.LeftTightIndex    ], sequentialData[alignIndex + Constants.LeftTightIndex    ], index.Fraction) + translation.Value;
+                    positions.LeftKnee      = lerp(sequentialData[alignLastIndex + Constants.LeftKneeIndex     ], sequentialData[alignIndex + Constants.LeftKneeIndex     ], index.Fraction) + translation.Value;
+                    positions.LeftKneeMed   = lerp(sequentialData[alignLastIndex + Constants.LeftKneeMedIndex  ], sequentialData[alignIndex + Constants.LeftKneeMedIndex  ], index.Fraction) + translation.Value;
+                    positions.LeftShank     = lerp(sequentialData[alignLastIndex + Constants.LeftShankIndex    ], sequentialData[alignIndex + Constants.LeftShankIndex    ], index.Fraction) + translation.Value;
+                    positions.LeftAnkle     = lerp(sequentialData[alignLastIndex + Constants.LeftAnkleIndex    ], sequentialData[alignIndex + Constants.LeftAnkleIndex    ], index.Fraction) + translation.Value;
+                    positions.LeftAnkleMed  = lerp(sequentialData[alignLastIndex + Constants.LeftAnkleMedIndex ], sequentialData[alignIndex + Constants.LeftAnkleMedIndex ], index.Fraction) + translation.Value;
+                    positions.LeftHeel      = lerp(sequentialData[alignLastIndex + Constants.LeftHeelIndex     ], sequentialData[alignIndex + Constants.LeftHeelIndex     ], index.Fraction) + translation.Value;
+                    positions.LeftToe       = lerp(sequentialData[alignLastIndex + Constants.LeftToeIndex      ], sequentialData[alignIndex + Constants.LeftToeIndex      ], index.Fraction) + translation.Value;
+                    positions.RightTight    = lerp(sequentialData[alignLastIndex + Constants.RightTightIndex   ], sequentialData[alignIndex + Constants.RightTightIndex   ], index.Fraction) + translation.Value;
+                    positions.RightAsis     = lerp(sequentialData[alignLastIndex + Constants.RightAsisIndex    ], sequentialData[alignIndex + Constants.RightAsisIndex    ], index.Fraction) + translation.Value;
+                    positions.RightKnee     = lerp(sequentialData[alignLastIndex + Constants.RightKneeIndex    ], sequentialData[alignIndex + Constants.RightKneeIndex    ], index.Fraction) + translation.Value;
+                    positions.RightKneeMed  = lerp(sequentialData[alignLastIndex + Constants.RightKneeMedIndex ], sequentialData[alignIndex + Constants.RightKneeMedIndex ], index.Fraction) + translation.Value;
+                    positions.RightShank    = lerp(sequentialData[alignLastIndex + Constants.RightShankIndex   ], sequentialData[alignIndex + Constants.RightShankIndex   ], index.Fraction) + translation.Value;
+                    positions.RightAnkle    = lerp(sequentialData[alignLastIndex + Constants.RightAnkleIndex   ], sequentialData[alignIndex + Constants.RightAnkleIndex   ], index.Fraction) + translation.Value;
+                    positions.RightAnkleMed = lerp(sequentialData[alignLastIndex + Constants.RightAnkleMedIndex], sequentialData[alignIndex + Constants.RightAnkleMedIndex], index.Fraction) + translation.Value;
+                    positions.RightHeel     = lerp(sequentialData[alignLastIndex + Constants.RightHeelIndex    ], sequentialData[alignIndex + Constants.RightHeelIndex    ], index.Fraction) + translation.Value;
+                    positions.RightToe      = lerp(sequentialData[alignLastIndex + Constants.RightToeIndex     ], sequentialData[alignIndex + Constants.RightToeIndex     ], index.Fraction) + translation.Value;
                 }).ScheduleParallel();
         }
     }

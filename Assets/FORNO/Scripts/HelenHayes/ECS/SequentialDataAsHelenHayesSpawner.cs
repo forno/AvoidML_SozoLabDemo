@@ -1,5 +1,4 @@
-﻿using Forno.Ecs;
-using System.IO;
+﻿using System.IO;
 using System;
 using Unity.Burst;
 using Unity.Collections;
@@ -9,6 +8,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using Hash128 = Unity.Entities.Hash128;
 using UnityEngine.Assertions;
+using Xmaho;
 
 namespace Forno.HelenHayes
 {
@@ -92,7 +92,6 @@ namespace Forno.HelenHayes
                 {
                     var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(spawner.Prefab, settings);
                     DstEntityManager.AddComponent<SequenceIndex>(prefab);
-                    DstEntityManager.AddComponent<SequenceTimeFrac>(prefab);
                     DstEntityManager.AddComponentData(prefab, new SequenceFrequency { Value = spawner.FrequencyOfSequence });
                     using (var instances = DstEntityManager.Instantiate(prefab, Constants.PositionCount, Allocator.Temp)) {
                         for (var i = 0; i < instances.Length; ++i) {
