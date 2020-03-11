@@ -212,7 +212,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 19089504}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateTimeFactor
         m_Mode: 1
         m_Arguments:
@@ -232,10 +232,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 19089501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122a06f0dcb43ad4980b5aeb785b382d, type: 3}
+  m_Script: {fileID: 11500000, guid: ff68478c42318304dae3bdd84ea57e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 19089503}
 --- !u!1 &28932048
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117954342}
-  - component: {fileID: 117954343}
   - component: {fileID: 117954344}
   m_Layer: 0
   m_Name: Motoman U axis
@@ -533,18 +532,6 @@ Transform:
   m_Father: {fileID: 1389668393}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 100, y: 0, z: 0}
---- !u!114 &117954343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117954341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f598061f24136c41aea72959eb7be1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &117954344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,10 +544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af5614ece4036c24bbe60c11ec7fbcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value:
-    x: -1
+  Axis:
+    x: 1
     y: 0
     z: 0
+  Frequency: 0
+  Amplify: 0
 --- !u!1 &164275304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1290,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136411915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6940ca7c286eaf54c99c29d66f5ea09c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9371b9a0e38655f45a15555938f681d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 5301852564245709755, guid: 9dfdafdad0424d348a1013d3066403a1, type: 3}
@@ -1760,7 +1749,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1719758783}
   - component: {fileID: 1719758784}
-  - component: {fileID: 1719758785}
   m_Layer: 0
   m_Name: Motoman S axis
   m_TagString: Untagged
@@ -1798,18 +1786,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkingPoint: {fileID: 1923534022}
   DetectRange: 0.175
---- !u!114 &1719758785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719758782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f598061f24136c41aea72959eb7be1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1841107556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,8 +2074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c670c9426f365b04cb2ca6e682403d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 1
-  amplify: 0.01
+  Frequency: 0
+  Amplify: 0
 --- !u!4 &2011856798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2785456518587333599, guid: 5b55ca3a6e2c4df478786686ee663a51,
@@ -2115,7 +2091,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027037133}
-  - component: {fileID: 2027037135}
   m_Layer: 0
   m_Name: Motoman R axis
   m_TagString: Untagged
@@ -2139,18 +2114,6 @@ Transform:
   m_Father: {fileID: 117954342}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027037135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027037132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f598061f24136c41aea72959eb7be1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2081753165
 GameObject:
   m_ObjectHideFlags: 0

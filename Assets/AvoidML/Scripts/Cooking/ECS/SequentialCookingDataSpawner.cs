@@ -1,14 +1,16 @@
-﻿using Forno.HelenHayes;
-using Unity.Collections;
+﻿using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
+using Xmaho.HelenHayes;
 
 namespace AvoidML.Cooking
 {
     [DisallowMultipleComponent]
     [RequiresEntityConversion]
+    [System.Obsolete()]
     public class SequentialCookingDataSpawner : SequentialDataAsHelenHayesSpawner { }
 
+    [System.Obsolete()]
     public class SequentialCookingDataConversionSystem : SequentialDataAsHelenHayesConversionSystemBase<SequentialCookingDataSpawner>
     {
         protected override void InitHelenHayes(NativeArray<Entity> entities)

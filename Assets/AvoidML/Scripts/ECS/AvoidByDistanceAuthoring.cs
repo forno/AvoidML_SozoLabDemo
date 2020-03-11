@@ -49,7 +49,7 @@ namespace AvoidML
             var collisionWorld = system.PhysicsWorld.CollisionWorld;
 
             Entities
-                .ForEach((ref PhysicsVelocity velocity, ref Rotation rotation, in AvoidByDistance avoider) =>
+                .ForEach((ref Rotation rotation, in AvoidByDistance avoider) =>
                 {
                     var pointDistanceInput = new PointDistanceInput
                     {
